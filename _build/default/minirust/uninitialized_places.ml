@@ -53,7 +53,8 @@ let go mir : analysis_results =
 
   (* Effect of using (copying or moving) a place [pl] on the abstract state [state]. *)
   let move_or_copy pl state =
-    state (* TODO : This code is incorrect. Replace with correct code. *)
+    if typ_is_copy (typ_of_place mir pl) then state else deinitialize pl state
+    (* TODO : This code is incorrect. Replace with correct code. *)
   in
 
   (* These modules are parameters of the [Fix.DataFlow.ForIntSegment] functor below. *)
@@ -70,11 +71,20 @@ let go mir : analysis_results =
     (* To complete this module, one can read file active_borrows.ml, which contains a
       similar data flow analysis. *)
 
-    let foreach_root go =
-      () (* TODO *)
+    let foreach_root go = go mir.mentry all_places
 
     let foreach_successor lbl state go =
-        () (* TODO *)
+      match fst mir.minstrs.(lbl) with
+      | Iassign (pl, _, next) -> go next (move_or_copy pl state)
+      | Ideinit (l, next) -> go next (deinitialize (PlLocal l) state)
+      | Igoto next -> go next state
+      | Iif (_, lbl1, lbl2) ->
+          go lbl1 state;
+          go lbl2 state
+      | Ireturn -> ()
+      | Icall (_, ll, pl, next) ->
+          let state = List.fold_left (fun s l -> move_or_copy (PlLocal l) s) state ll in
+          go next (initialize pl state)
   end in
   let module Fix = Fix.DataFlow.ForIntSegment (Instrs) (Prop) (Graph) in
   fun i -> Option.value (Fix.solution i) ~default:PlaceSet.empty
