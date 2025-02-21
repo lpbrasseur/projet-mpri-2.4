@@ -1,0 +1,2115 @@
+
+type token = 
+  | WHILE
+  | WHERE
+  | STRUCT
+  | STAR
+  | SEMICOLON
+  | RPAREN
+  | RETURN
+  | RBRA
+  | PLUS
+  | PERCENT
+  | NOT
+  | NEQ
+  | MUT
+  | MINUS
+  | LT
+  | LPAREN
+  | LOOP
+  | LIFETIME of (
+# 7 "minirust/parser.mly"
+       (string)
+# 24 "minirust/parser__mock.ml.mock"
+)
+  | LET
+  | LE
+  | LBRA
+  | IF
+  | IDENT of (
+# 7 "minirust/parser.mly"
+       (string)
+# 33 "minirust/parser__mock.ml.mock"
+)
+  | I32
+  | GT
+  | GE
+  | FN
+  | EQEQ
+  | EQ
+  | EOF
+  | ELSE
+  | DUMMY
+  | DOT
+  | DIV
+  | DERIVECOPY
+  | CONSTANT of (
+# 6 "minirust/parser.mly"
+       (Ast_types.constant)
+# 50 "minirust/parser__mock.ml.mock"
+)
+  | COMMA
+  | COLON
+  | BREAK
+  | BOOL
+  | BARBAR
+  | ARROW
+  | AMPAMP
+  | AMP
+
+# 2 "minirust/parser.mly"
+  
+  open Ast_types
+
+# 65 "minirust/parser__mock.ml.mock"
+
+let menhir_begin_marker =
+  0
+
+and (xv_where_clause, xv_typ_false__lifetime_generics_, xv_typ___anonymous_2___anonymous_3___anonymous_4_, xv_true_, xv_struct_field, xv_stmts_or_unit, xv_return_type, xv_prog, xv_option___anonymous_9_, xv_option_DERIVECOPY_, xv_nonempty_stmts, xv_mutornot, xv_loption___anonymous_6_, xv_loption___anonymous_1_, xv_loc_expr_expr_without_block__true___, xv_loc_expr_expr_without_block__false___, xv_loc_expr_expr_with_block__, xv_loc_expr_else_expr_, xv_loc_expr___anonymous_8_, xv_loc_expr___anonymous_7_, xv_list_decl_, xv_lifetime, xv_let_stmt, xv_if_expr, xv_ident, xv_generics, xv_formal, xv_field, xv_false_, xv_expr_without_block__true__, xv_expr_without_block__false__, xv_expr_without_block_true__, xv_expr_without_block_false__, xv_expr_with_block_, xv_expr_with_block, xv_expr__true__, xv_expr__false__, xv_expr, xv_else_expr, xv_decl_typ, xv_decl, xv_comma_list_struct_field_, xv_comma_list_lifetime_, xv_comma_list_formal_, xv_comma_list_field_, xv_comma_list_expr_, xv_comma_list___anonymous_5_, xv_body_typ, xv_block_expr, xv_binop, xv___anonymous_9, xv___anonymous_8, xv___anonymous_7, xv___anonymous_6, xv___anonymous_5, xv___anonymous_4, xv___anonymous_3, xv___anonymous_2, xv___anonymous_1) =
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 113 "<standard.mly>"
+  x
+# 74 "minirust/parser__mock.ml.mock"
+   : 'tv___anonymous_9) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_option___anonymous_9_ ->
+    
+# 114 "<standard.mly>"
+    ( Some x )
+# 79 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv_option___anonymous_9_ ->
+    
+# 111 "<standard.mly>"
+    ( None )
+# 85 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 113 "<standard.mly>"
+  x
+# 90 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_option_DERIVECOPY_ ->
+    
+# 114 "<standard.mly>"
+    ( Some x )
+# 95 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv_option_DERIVECOPY_ ->
+    
+# 111 "<standard.mly>"
+    ( None )
+# 101 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 147 "<standard.mly>"
+  x
+# 106 "minirust/parser__mock.ml.mock"
+   : 'tv___anonymous_6) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_loption___anonymous_6_ ->
+    
+# 148 "<standard.mly>"
+    ( x )
+# 111 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv_loption___anonymous_6_ ->
+    
+# 145 "<standard.mly>"
+    ( [] )
+# 117 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 147 "<standard.mly>"
+  x
+# 122 "minirust/parser__mock.ml.mock"
+   : 'tv___anonymous_1) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_loption___anonymous_1_ ->
+    
+# 148 "<standard.mly>"
+    ( x )
+# 127 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv_loption___anonymous_1_ ->
+    
+# 145 "<standard.mly>"
+    ( [] )
+# 133 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 218 "<standard.mly>"
+         xs
+# 138 "minirust/parser__mock.ml.mock"
+   : 'tv_list_decl_) (_startpos_xs_ : Lexing.position) (_endpos_xs_ : Lexing.position) (_startofs_xs_ : int) (_endofs_xs_ : int) (_loc_xs_ : Lexing.position * Lexing.position) (
+# 218 "<standard.mly>"
+  x
+# 142 "minirust/parser__mock.ml.mock"
+   : 'tv_decl) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_list_decl_ ->
+    
+# 219 "<standard.mly>"
+    ( x :: xs )
+# 147 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv_list_decl_ ->
+    
+# 216 "<standard.mly>"
+    ( [] )
+# 153 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 89 "minirust/parser.mly"
+  l
+# 158 "minirust/parser__mock.ml.mock"
+   : 'tv_loption___anonymous_6_) (_startpos_l_ : Lexing.position) (_endpos_l_ : Lexing.position) (_startofs_l_ : int) (_endofs_l_ : int) (_loc_l_ : Lexing.position * Lexing.position) : 'tv_where_clause ->
+    
+# 89 "minirust/parser.mly"
+                                                                                  ( l )
+# 163 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 197 "minirust/parser.mly"
+                               ty
+# 168 "minirust/parser__mock.ml.mock"
+   : 'tv_typ_false__lifetime_generics_) (_startpos_ty_ : Lexing.position) (_endpos_ty_ : Lexing.position) (_startofs_ty_ : int) (_endofs_ty_ : int) (_loc_ty_ : Lexing.position * Lexing.position) (
+# 197 "minirust/parser.mly"
+                  mut
+# 172 "minirust/parser__mock.ml.mock"
+   : 'tv_mutornot) (_startpos_mut_ : Lexing.position) (_endpos_mut_ : Lexing.position) (_startofs_mut_ : int) (_endofs_mut_ : int) (_loc_mut_ : Lexing.position * Lexing.position) (
+# 197 "minirust/parser.mly"
+         nl
+# 176 "minirust/parser__mock.ml.mock"
+   : 'tv_false_) (_startpos_nl_ : Lexing.position) (_endpos_nl_ : Lexing.position) (_startofs_nl_ : int) (_endofs_nl_ : int) (_loc_nl_ : Lexing.position * Lexing.position) (
+# 197 "minirust/parser.mly"
+ _1
+# 180 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_typ_false__lifetime_generics_ ->
+    
+# 198 "minirust/parser.mly"
+                                           ( Tborrow (nl, NotMut, Tborrow(nl, mut, ty)) )
+# 185 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 195 "minirust/parser.mly"
+                         ty
+# 190 "minirust/parser__mock.ml.mock"
+   : 'tv_typ_false__lifetime_generics_) (_startpos_ty_ : Lexing.position) (_endpos_ty_ : Lexing.position) (_startofs_ty_ : int) (_endofs_ty_ : int) (_loc_ty_ : Lexing.position * Lexing.position) (
+# 195 "minirust/parser.mly"
+            mut
+# 194 "minirust/parser__mock.ml.mock"
+   : 'tv_mutornot) (_startpos_mut_ : Lexing.position) (_endpos_mut_ : Lexing.position) (_startofs_mut_ : int) (_endofs_mut_ : int) (_loc_mut_ : Lexing.position * Lexing.position) (
+# 195 "minirust/parser.mly"
+      l
+# 198 "minirust/parser__mock.ml.mock"
+   : 'tv_lifetime) (_startpos_l_ : Lexing.position) (_endpos_l_ : Lexing.position) (_startofs_l_ : int) (_endofs_l_ : int) (_loc_l_ : Lexing.position * Lexing.position) (
+# 195 "minirust/parser.mly"
+ _1
+# 202 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_typ_false__lifetime_generics_ ->
+    
+# 196 "minirust/parser.mly"
+                                           ( Tborrow (l, mut, ty) )
+# 207 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 194 "minirust/parser.mly"
+        _2
+# 212 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 194 "minirust/parser.mly"
+ _1
+# 216 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_typ_false__lifetime_generics_ ->
+    
+# 194 "minirust/parser.mly"
+                                           ( Tunit )
+# 221 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 193 "minirust/parser.mly"
+ _1
+# 226 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_typ_false__lifetime_generics_ ->
+    
+# 193 "minirust/parser.mly"
+                                           ( Tbool )
+# 231 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 192 "minirust/parser.mly"
+ _1
+# 236 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_typ_false__lifetime_generics_ ->
+    
+# 192 "minirust/parser.mly"
+                                           ( Ti32 )
+# 241 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 191 "minirust/parser.mly"
+           gen
+# 246 "minirust/parser__mock.ml.mock"
+   : 'tv_generics) (_startpos_gen_ : Lexing.position) (_endpos_gen_ : Lexing.position) (_startofs_gen_ : int) (_endofs_gen_ : int) (_loc_gen_ : Lexing.position * Lexing.position) (
+# 191 "minirust/parser.mly"
+  id
+# 250 "minirust/parser__mock.ml.mock"
+   : (
+# 7 "minirust/parser.mly"
+       (string)
+# 254 "minirust/parser__mock.ml.mock"
+  )) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) : 'tv_typ_false__lifetime_generics_ ->
+    
+# 191 "minirust/parser.mly"
+                                           ( Tstruct (id, gen) )
+# 259 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 197 "minirust/parser.mly"
+                               ty
+# 264 "minirust/parser__mock.ml.mock"
+   : 'tv_typ___anonymous_2___anonymous_3___anonymous_4_) (_startpos_ty_ : Lexing.position) (_endpos_ty_ : Lexing.position) (_startofs_ty_ : int) (_endofs_ty_ : int) (_loc_ty_ : Lexing.position * Lexing.position) (
+# 197 "minirust/parser.mly"
+                  mut
+# 268 "minirust/parser__mock.ml.mock"
+   : 'tv_mutornot) (_startpos_mut_ : Lexing.position) (_endpos_mut_ : Lexing.position) (_startofs_mut_ : int) (_endofs_mut_ : int) (_loc_mut_ : Lexing.position * Lexing.position) (
+# 197 "minirust/parser.mly"
+         nl
+# 272 "minirust/parser__mock.ml.mock"
+   : 'tv___anonymous_2) (_startpos_nl_ : Lexing.position) (_endpos_nl_ : Lexing.position) (_startofs_nl_ : int) (_endofs_nl_ : int) (_loc_nl_ : Lexing.position * Lexing.position) (
+# 197 "minirust/parser.mly"
+ _1
+# 276 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_typ___anonymous_2___anonymous_3___anonymous_4_ ->
+    
+# 198 "minirust/parser.mly"
+                                           ( Tborrow (nl, NotMut, Tborrow(nl, mut, ty)) )
+# 281 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 195 "minirust/parser.mly"
+                         ty
+# 286 "minirust/parser__mock.ml.mock"
+   : 'tv_typ___anonymous_2___anonymous_3___anonymous_4_) (_startpos_ty_ : Lexing.position) (_endpos_ty_ : Lexing.position) (_startofs_ty_ : int) (_endofs_ty_ : int) (_loc_ty_ : Lexing.position * Lexing.position) (
+# 195 "minirust/parser.mly"
+            mut
+# 290 "minirust/parser__mock.ml.mock"
+   : 'tv_mutornot) (_startpos_mut_ : Lexing.position) (_endpos_mut_ : Lexing.position) (_startofs_mut_ : int) (_endofs_mut_ : int) (_loc_mut_ : Lexing.position * Lexing.position) (
+# 195 "minirust/parser.mly"
+      l
+# 294 "minirust/parser__mock.ml.mock"
+   : 'tv___anonymous_3) (_startpos_l_ : Lexing.position) (_endpos_l_ : Lexing.position) (_startofs_l_ : int) (_endofs_l_ : int) (_loc_l_ : Lexing.position * Lexing.position) (
+# 195 "minirust/parser.mly"
+ _1
+# 298 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_typ___anonymous_2___anonymous_3___anonymous_4_ ->
+    
+# 196 "minirust/parser.mly"
+                                           ( Tborrow (l, mut, ty) )
+# 303 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 194 "minirust/parser.mly"
+        _2
+# 308 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 194 "minirust/parser.mly"
+ _1
+# 312 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_typ___anonymous_2___anonymous_3___anonymous_4_ ->
+    
+# 194 "minirust/parser.mly"
+                                           ( Tunit )
+# 317 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 193 "minirust/parser.mly"
+ _1
+# 322 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_typ___anonymous_2___anonymous_3___anonymous_4_ ->
+    
+# 193 "minirust/parser.mly"
+                                           ( Tbool )
+# 327 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 192 "minirust/parser.mly"
+ _1
+# 332 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_typ___anonymous_2___anonymous_3___anonymous_4_ ->
+    
+# 192 "minirust/parser.mly"
+                                           ( Ti32 )
+# 337 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 191 "minirust/parser.mly"
+           gen
+# 342 "minirust/parser__mock.ml.mock"
+   : 'tv___anonymous_4) (_startpos_gen_ : Lexing.position) (_endpos_gen_ : Lexing.position) (_startofs_gen_ : int) (_endofs_gen_ : int) (_loc_gen_ : Lexing.position * Lexing.position) (
+# 191 "minirust/parser.mly"
+  id
+# 346 "minirust/parser__mock.ml.mock"
+   : (
+# 7 "minirust/parser.mly"
+       (string)
+# 350 "minirust/parser__mock.ml.mock"
+  )) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) : 'tv_typ___anonymous_2___anonymous_3___anonymous_4_ ->
+    
+# 191 "minirust/parser.mly"
+                                           ( Tstruct (id, gen) )
+# 355 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv_true_ ->
+    
+# 48 "minirust/parser.mly"
+               ( () )
+# 361 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 79 "minirust/parser.mly"
+                 ty
+# 366 "minirust/parser__mock.ml.mock"
+   : 'tv_decl_typ) (_startpos_ty_ : Lexing.position) (_endpos_ty_ : Lexing.position) (_startofs_ty_ : int) (_endofs_ty_ : int) (_loc_ty_ : Lexing.position * Lexing.position) (
+# 79 "minirust/parser.mly"
+          _2
+# 370 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 79 "minirust/parser.mly"
+  id
+# 374 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) : 'tv_struct_field ->
+    
+# 79 "minirust/parser.mly"
+                             ( (id, ty) )
+# 379 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 99 "minirust/parser.mly"
+  b
+# 384 "minirust/parser__mock.ml.mock"
+   : 'tv_nonempty_stmts) (_startpos_b_ : Lexing.position) (_endpos_b_ : Lexing.position) (_startofs_b_ : int) (_endofs_b_ : int) (_loc_b_ : Lexing.position * Lexing.position) : 'tv_stmts_or_unit ->
+    
+# 99 "minirust/parser.mly"
+                                      ( b )
+# 389 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 98 "minirust/parser.mly"
+  e
+# 394 "minirust/parser__mock.ml.mock"
+   : 'tv_loc_expr___anonymous_8_) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_stmts_or_unit ->
+    
+# 98 "minirust/parser.mly"
+                                      ( [], e )
+# 399 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv_return_type ->
+    
+# 86 "minirust/parser.mly"
+                    ( Tunit )
+# 405 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 85 "minirust/parser.mly"
+        ty
+# 410 "minirust/parser__mock.ml.mock"
+   : 'tv_decl_typ) (_startpos_ty_ : Lexing.position) (_endpos_ty_ : Lexing.position) (_startofs_ty_ : int) (_endofs_ty_ : int) (_loc_ty_ : Lexing.position * Lexing.position) (
+# 85 "minirust/parser.mly"
+ _1
+# 414 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_return_type ->
+    
+# 85 "minirust/parser.mly"
+                    ( ty )
+# 419 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 204 "minirust/parser.mly"
+         _2
+# 424 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 204 "minirust/parser.mly"
+  l
+# 428 "minirust/parser__mock.ml.mock"
+   : 'tv_list_decl_) (_startpos_l_ : Lexing.position) (_endpos_l_ : Lexing.position) (_startofs_l_ : int) (_endofs_l_ : int) (_loc_l_ : Lexing.position * Lexing.position) : (
+# 28 "minirust/parser.mly"
+      (Ast_types.program)
+# 432 "minirust/parser__mock.ml.mock"
+  ) ->
+    (
+# 204 "minirust/parser.mly"
+              ( l )
+# 437 "minirust/parser__mock.ml.mock"
+     : 'tv_prog) in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 106 "minirust/parser.mly"
+  e
+# 442 "minirust/parser__mock.ml.mock"
+   : 'tv_expr) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_nonempty_stmts ->
+    
+# 106 "minirust/parser.mly"
+                                                          ( [], e )
+# 447 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 105 "minirust/parser.mly"
+                    b
+# 452 "minirust/parser__mock.ml.mock"
+   : 'tv_nonempty_stmts) (_startpos_b_ : Lexing.position) (_endpos_b_ : Lexing.position) (_startofs_b_ : int) (_endofs_b_ : int) (_loc_b_ : Lexing.position * Lexing.position) (
+# 105 "minirust/parser.mly"
+  e
+# 456 "minirust/parser__mock.ml.mock"
+   : 'tv_expr_with_block) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_nonempty_stmts ->
+    
+# 105 "minirust/parser.mly"
+                                                          ( e::fst b, snd b )
+# 461 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 104 "minirust/parser.mly"
+                                        b
+# 466 "minirust/parser__mock.ml.mock"
+   : 'tv_stmts_or_unit) (_startpos_b_ : Lexing.position) (_endpos_b_ : Lexing.position) (_startofs_b_ : int) (_endofs_b_ : int) (_loc_b_ : Lexing.position * Lexing.position) (
+# 104 "minirust/parser.mly"
+                             _2
+# 470 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 104 "minirust/parser.mly"
+  e
+# 474 "minirust/parser__mock.ml.mock"
+   : 'tv_expr_without_block_true__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_nonempty_stmts ->
+    
+# 104 "minirust/parser.mly"
+                                                          ( e::fst b, snd b )
+# 479 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 103 "minirust/parser.mly"
+  s
+# 484 "minirust/parser__mock.ml.mock"
+   : 'tv_let_stmt) (_startpos_s_ : Lexing.position) (_endpos_s_ : Lexing.position) (_startofs_s_ : int) (_endofs_s_ : int) (_loc_s_ : Lexing.position * Lexing.position) : 'tv_nonempty_stmts ->
+    
+# 103 "minirust/parser.mly"
+                                                          ( [], s )
+# 489 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 102 "minirust/parser.mly"
+            b
+# 494 "minirust/parser__mock.ml.mock"
+   : 'tv_stmts_or_unit) (_startpos_b_ : Lexing.position) (_endpos_b_ : Lexing.position) (_startofs_b_ : int) (_endofs_b_ : int) (_loc_b_ : Lexing.position * Lexing.position) (
+# 102 "minirust/parser.mly"
+ _1
+# 498 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_nonempty_stmts ->
+    
+# 102 "minirust/parser.mly"
+                                                          ( b )
+# 503 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv_mutornot ->
+    
+# 38 "minirust/parser.mly"
+  ( NotMut )
+# 509 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 37 "minirust/parser.mly"
+ _1
+# 514 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_mutornot ->
+    
+# 37 "minirust/parser.mly"
+      ( Mut )
+# 519 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 92 "minirust/parser.mly"
+  e
+# 524 "minirust/parser__mock.ml.mock"
+   : 'tv_expr_without_block__true__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_loc_expr_expr_without_block__true___ ->
+    
+# 92 "minirust/parser.mly"
+      ( { edesc = e; eloc = _sloc; etyp = None } )
+# 529 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 92 "minirust/parser.mly"
+  e
+# 534 "minirust/parser__mock.ml.mock"
+   : 'tv_expr_without_block__false__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_loc_expr_expr_without_block__false___ ->
+    
+# 92 "minirust/parser.mly"
+      ( { edesc = e; eloc = _sloc; etyp = None } )
+# 539 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 92 "minirust/parser.mly"
+  e
+# 544 "minirust/parser__mock.ml.mock"
+   : 'tv_expr_with_block_) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_loc_expr_expr_with_block__ ->
+    
+# 92 "minirust/parser.mly"
+      ( { edesc = e; eloc = _sloc; etyp = None } )
+# 549 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 92 "minirust/parser.mly"
+  e
+# 554 "minirust/parser__mock.ml.mock"
+   : 'tv_else_expr) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_loc_expr_else_expr_ ->
+    
+# 92 "minirust/parser.mly"
+      ( { edesc = e; eloc = _sloc; etyp = None } )
+# 559 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 92 "minirust/parser.mly"
+  e
+# 564 "minirust/parser__mock.ml.mock"
+   : 'tv___anonymous_8) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_loc_expr___anonymous_8_ ->
+    
+# 92 "minirust/parser.mly"
+      ( { edesc = e; eloc = _sloc; etyp = None } )
+# 569 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 92 "minirust/parser.mly"
+  e
+# 574 "minirust/parser__mock.ml.mock"
+   : 'tv___anonymous_7) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_loc_expr___anonymous_7_ ->
+    
+# 92 "minirust/parser.mly"
+      ( { edesc = e; eloc = _sloc; etyp = None } )
+# 579 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 201 "minirust/parser.mly"
+  l
+# 584 "minirust/parser__mock.ml.mock"
+   : (
+# 7 "minirust/parser.mly"
+       (string)
+# 588 "minirust/parser__mock.ml.mock"
+  )) (_startpos_l_ : Lexing.position) (_endpos_l_ : Lexing.position) (_startofs_l_ : int) (_endofs_l_ : int) (_loc_l_ : Lexing.position * Lexing.position) : 'tv_lifetime ->
+    
+# 201 "minirust/parser.mly"
+                                         ( Lnamed l )
+# 593 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 116 "minirust/parser.mly"
+                    _4
+# 598 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__4_ : Lexing.position) (_endpos__4_ : Lexing.position) (_startofs__4_ : int) (_endofs__4_ : int) (_loc__4_ : Lexing.position * Lexing.position) (
+# 116 "minirust/parser.mly"
+              _3
+# 602 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
+# 116 "minirust/parser.mly"
+     _2
+# 606 "minirust/parser__mock.ml.mock"
+   : 'tv_mutornot) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 116 "minirust/parser.mly"
+ _1
+# 610 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_let_stmt ->
+    
+# 117 "minirust/parser.mly"
+  ( Error.error _sloc "In MiniRust, all let-bindings must have explicit types." )
+# 615 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 114 "minirust/parser.mly"
+                    _4
+# 620 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__4_ : Lexing.position) (_endpos__4_ : Lexing.position) (_startofs__4_ : int) (_endofs__4_ : int) (_loc__4_ : Lexing.position * Lexing.position) (
+# 114 "minirust/parser.mly"
+              _3
+# 624 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
+# 114 "minirust/parser.mly"
+     _2
+# 628 "minirust/parser__mock.ml.mock"
+   : 'tv_mutornot) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 114 "minirust/parser.mly"
+ _1
+# 632 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_let_stmt ->
+    
+# 115 "minirust/parser.mly"
+  ( Error.error _sloc "In MiniRust, all let-bindings must have explicit types." )
+# 637 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 110 "minirust/parser.mly"
+  b
+# 642 "minirust/parser__mock.ml.mock"
+   : 'tv_stmts_or_unit) (_startpos_b_ : Lexing.position) (_endpos_b_ : Lexing.position) (_startofs_b_ : int) (_endofs_b_ : int) (_loc_b_ : Lexing.position * Lexing.position) (
+# 109 "minirust/parser.mly"
+                                                                         _s
+# 646 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__s_ : Lexing.position) (_endpos__s_ : Lexing.position) (_startofs__s_ : int) (_endofs__s_ : int) (_loc__s_ : Lexing.position * Lexing.position) (
+# 109 "minirust/parser.mly"
+                                                 e
+# 650 "minirust/parser__mock.ml.mock"
+   : 'tv_option___anonymous_9_) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 109 "minirust/parser.mly"
+                                     ty
+# 654 "minirust/parser__mock.ml.mock"
+   : 'tv_body_typ) (_startpos_ty_ : Lexing.position) (_endpos_ty_ : Lexing.position) (_startofs_ty_ : int) (_endofs_ty_ : int) (_loc_ty_ : Lexing.position * Lexing.position) (
+# 109 "minirust/parser.mly"
+                              _4
+# 658 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__4_ : Lexing.position) (_endpos__4_ : Lexing.position) (_startofs__4_ : int) (_endofs__4_ : int) (_loc__4_ : Lexing.position * Lexing.position) (
+# 109 "minirust/parser.mly"
+                      id
+# 662 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) (
+# 109 "minirust/parser.mly"
+         mut
+# 666 "minirust/parser__mock.ml.mock"
+   : 'tv_mutornot) (_startpos_mut_ : Lexing.position) (_endpos_mut_ : Lexing.position) (_startofs_mut_ : int) (_endofs_mut_ : int) (_loc_mut_ : Lexing.position * Lexing.position) (
+# 109 "minirust/parser.mly"
+  _l
+# 670 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__l_ : Lexing.position) (_endpos__l_ : Lexing.position) (_startofs__l_ : int) (_endofs__l_ : int) (_loc__l_ : Lexing.position * Lexing.position) : 'tv_let_stmt ->
+    
+# 111 "minirust/parser.mly"
+   ( { edesc = Elet(id, mut, ty, e, b);
+       eloc = (_startpos__l_, _endpos__s_);
+       etyp = None } )
+# 677 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 166 "minirust/parser.mly"
+                                   b2
+# 682 "minirust/parser__mock.ml.mock"
+   : 'tv_loc_expr_else_expr_) (_startpos_b2_ : Lexing.position) (_endpos_b2_ : Lexing.position) (_startofs_b2_ : int) (_endofs_b2_ : int) (_loc_b2_ : Lexing.position * Lexing.position) (
+# 166 "minirust/parser.mly"
+                     b1
+# 686 "minirust/parser__mock.ml.mock"
+   : 'tv_block_expr) (_startpos_b1_ : Lexing.position) (_endpos_b1_ : Lexing.position) (_startofs_b1_ : int) (_endofs_b1_ : int) (_loc_b1_ : Lexing.position * Lexing.position) (
+# 166 "minirust/parser.mly"
+     e
+# 690 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 166 "minirust/parser.mly"
+ _1
+# 694 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_if_expr ->
+    
+# 167 "minirust/parser.mly"
+    ( Eif (e, b1, b2) )
+# 699 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 34 "minirust/parser.mly"
+  id
+# 704 "minirust/parser__mock.ml.mock"
+   : (
+# 7 "minirust/parser.mly"
+       (string)
+# 708 "minirust/parser__mock.ml.mock"
+  )) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) : 'tv_ident ->
+    
+# 34 "minirust/parser.mly"
+           ( { iloc = _sloc; id } )
+# 713 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 52 "minirust/parser.mly"
+  g
+# 718 "minirust/parser__mock.ml.mock"
+   : 'tv_loption___anonymous_1_) (_startpos_g_ : Lexing.position) (_endpos_g_ : Lexing.position) (_startofs_g_ : int) (_endofs_g_ : int) (_loc_g_ : Lexing.position * Lexing.position) : 'tv_generics ->
+    
+# 52 "minirust/parser.mly"
+                                                ( g )
+# 723 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 82 "minirust/parser.mly"
+                              ty
+# 728 "minirust/parser__mock.ml.mock"
+   : 'tv_decl_typ) (_startpos_ty_ : Lexing.position) (_endpos_ty_ : Lexing.position) (_startofs_ty_ : int) (_endofs_ty_ : int) (_loc_ty_ : Lexing.position * Lexing.position) (
+# 82 "minirust/parser.mly"
+                       _3
+# 732 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
+# 82 "minirust/parser.mly"
+               id
+# 736 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) (
+# 82 "minirust/parser.mly"
+  mut
+# 740 "minirust/parser__mock.ml.mock"
+   : 'tv_mutornot) (_startpos_mut_ : Lexing.position) (_endpos_mut_ : Lexing.position) (_startofs_mut_ : int) (_endofs_mut_ : int) (_loc_mut_ : Lexing.position * Lexing.position) : 'tv_formal ->
+    
+# 82 "minirust/parser.mly"
+                                          ( (id, mut, ty) )
+# 745 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 175 "minirust/parser.mly"
+                 e
+# 750 "minirust/parser__mock.ml.mock"
+   : 'tv_expr) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 175 "minirust/parser.mly"
+          _2
+# 754 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 175 "minirust/parser.mly"
+  id
+# 758 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) : 'tv_field ->
+    
+# 175 "minirust/parser.mly"
+                        ( id, e )
+# 763 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 49 "minirust/parser.mly"
+               _1
+# 768 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_false_ ->
+    
+# 49 "minirust/parser.mly"
+                      ( assert false )
+# 773 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 151 "minirust/parser.mly"
+               _3
+# 778 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
+# 151 "minirust/parser.mly"
+         e
+# 782 "minirust/parser__mock.ml.mock"
+   : 'tv_expr) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 151 "minirust/parser.mly"
+ _1
+# 786 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 151 "minirust/parser.mly"
+                                                   ( e.edesc )
+# 791 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 150 "minirust/parser.mly"
+                                     _4
+# 796 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__4_ : Lexing.position) (_endpos__4_ : Lexing.position) (_startofs__4_ : int) (_endofs__4_ : int) (_loc__4_ : Lexing.position * Lexing.position) (
+# 150 "minirust/parser.mly"
+                  el
+# 800 "minirust/parser__mock.ml.mock"
+   : 'tv_comma_list_expr_) (_startpos_el_ : Lexing.position) (_endpos_el_ : Lexing.position) (_startofs_el_ : int) (_endofs_el_ : int) (_loc_el_ : Lexing.position * Lexing.position) (
+# 150 "minirust/parser.mly"
+          _2
+# 804 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 150 "minirust/parser.mly"
+  id
+# 808 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 150 "minirust/parser.mly"
+                                                   ( Ecall (id, el) )
+# 813 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 149 "minirust/parser.mly"
+         _2
+# 818 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 149 "minirust/parser.mly"
+ _1
+# 822 "minirust/parser__mock.ml.mock"
+   : 'tv_true_) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 149 "minirust/parser.mly"
+                                                   ( Ereturn None )
+# 827 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 148 "minirust/parser.mly"
+         e
+# 832 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 148 "minirust/parser.mly"
+ _1
+# 836 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 148 "minirust/parser.mly"
+                                                   ( Ereturn (Some e) )
+# 841 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 147 "minirust/parser.mly"
+ _1
+# 846 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 147 "minirust/parser.mly"
+                                                   ( Ebreak )
+# 851 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 146 "minirust/parser.mly"
+                                            _5
+# 856 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__5_ : Lexing.position) (_endpos__5_ : Lexing.position) (_startofs__5_ : int) (_endofs__5_ : int) (_loc__5_ : Lexing.position * Lexing.position) (
+# 146 "minirust/parser.mly"
+                        fl
+# 860 "minirust/parser__mock.ml.mock"
+   : 'tv_comma_list_field_) (_startpos_fl_ : Lexing.position) (_endpos_fl_ : Lexing.position) (_startofs_fl_ : int) (_endofs_fl_ : int) (_loc_fl_ : Lexing.position * Lexing.position) (
+# 146 "minirust/parser.mly"
+                  _3
+# 864 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
+# 146 "minirust/parser.mly"
+          id
+# 868 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) (
+# 146 "minirust/parser.mly"
+ _1
+# 872 "minirust/parser__mock.ml.mock"
+   : 'tv_true_) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 146 "minirust/parser.mly"
+                                                   ( Econstr_stru (id, fl) )
+# 877 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 145 "minirust/parser.mly"
+        _2
+# 882 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 145 "minirust/parser.mly"
+ _1
+# 886 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 145 "minirust/parser.mly"
+                                                   ( Eunit )
+# 891 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 144 "minirust/parser.mly"
+                       id
+# 896 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) (
+# 144 "minirust/parser.mly"
+                  _2
+# 900 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 144 "minirust/parser.mly"
+  e
+# 904 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 144 "minirust/parser.mly"
+                                                   ( Edot (e, id) )
+# 909 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 143 "minirust/parser.mly"
+  id
+# 914 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 143 "minirust/parser.mly"
+                                                   ( Evar id )
+# 919 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 136 "minirust/parser.mly"
+                      e
+# 924 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 136 "minirust/parser.mly"
+         mut
+# 928 "minirust/parser__mock.ml.mock"
+   : 'tv_mutornot) (_startpos_mut_ : Lexing.position) (_endpos_mut_ : Lexing.position) (_startofs_mut_ : int) (_endofs_mut_ : int) (_loc_mut_ : Lexing.position * Lexing.position) (
+# 136 "minirust/parser.mly"
+ _1
+# 932 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 136 "minirust/parser.mly"
+                                                   (
+    Eborrow(NotMut,
+      { edesc = Eborrow (mut, e);
+        eloc = _sloc;
+        etyp = None }
+    )
+  )
+# 943 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 135 "minirust/parser.mly"
+                   e
+# 948 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 135 "minirust/parser.mly"
+      mut
+# 952 "minirust/parser__mock.ml.mock"
+   : 'tv_mutornot) (_startpos_mut_ : Lexing.position) (_endpos_mut_ : Lexing.position) (_startofs_mut_ : int) (_endofs_mut_ : int) (_loc_mut_ : Lexing.position * Lexing.position) (
+# 135 "minirust/parser.mly"
+ _1
+# 956 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 135 "minirust/parser.mly"
+                                                   ( Eborrow (mut, e) )
+# 961 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 134 "minirust/parser.mly"
+       e
+# 966 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 134 "minirust/parser.mly"
+ _1
+# 970 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 134 "minirust/parser.mly"
+                                                   ( Ederef e )
+# 975 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 133 "minirust/parser.mly"
+      c
+# 980 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_c_ : Lexing.position) (_endpos_c_ : Lexing.position) (_startofs_c_ : int) (_endofs_c_ : int) (_loc_c_ : Lexing.position * Lexing.position) (
+# 133 "minirust/parser.mly"
+ _1
+# 984 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 133 "minirust/parser.mly"
+                                                   ( Eunop (Unot, c) )
+# 989 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 132 "minirust/parser.mly"
+        e
+# 994 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 132 "minirust/parser.mly"
+ _1
+# 998 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 132 "minirust/parser.mly"
+                                                   ( Eunop (Uneg, e) )
+# 1003 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 131 "minirust/parser.mly"
+                       e2
+# 1008 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_e2_ : Lexing.position) (_endpos_e2_ : Lexing.position) (_startofs_e2_ : int) (_endofs_e2_ : int) (_loc_e2_ : Lexing.position * Lexing.position) (
+# 131 "minirust/parser.mly"
+                   _2
+# 1012 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 131 "minirust/parser.mly"
+  e1
+# 1016 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_e1_ : Lexing.position) (_endpos_e1_ : Lexing.position) (_startofs_e1_ : int) (_endofs_e1_ : int) (_loc_e1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 131 "minirust/parser.mly"
+                                                   ( Eassign (e1, e2) )
+# 1021 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 130 "minirust/parser.mly"
+                            c2
+# 1026 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_c2_ : Lexing.position) (_endpos_c2_ : Lexing.position) (_startofs_c2_ : int) (_endofs_c2_ : int) (_loc_c2_ : Lexing.position * Lexing.position) (
+# 130 "minirust/parser.mly"
+                   _2
+# 1030 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 130 "minirust/parser.mly"
+  c1
+# 1034 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_c1_ : Lexing.position) (_endpos_c1_ : Lexing.position) (_startofs_c1_ : int) (_endofs_c1_ : int) (_loc_c1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 130 "minirust/parser.mly"
+                                                   ( Eor  (c1, c2) )
+# 1039 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 129 "minirust/parser.mly"
+                           c2
+# 1044 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_c2_ : Lexing.position) (_endpos_c2_ : Lexing.position) (_startofs_c2_ : int) (_endofs_c2_ : int) (_loc_c2_ : Lexing.position * Lexing.position) (
+# 129 "minirust/parser.mly"
+                   _2
+# 1048 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 129 "minirust/parser.mly"
+  c1
+# 1052 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_c1_ : Lexing.position) (_endpos_c1_ : Lexing.position) (_startofs_c1_ : int) (_endofs_c1_ : int) (_loc_c1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 129 "minirust/parser.mly"
+                                                   ( Eand (c1, c2) )
+# 1057 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 128 "minirust/parser.mly"
+                            e2
+# 1062 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_e2_ : Lexing.position) (_endpos_e2_ : Lexing.position) (_startofs_e2_ : int) (_endofs_e2_ : int) (_loc_e2_ : Lexing.position * Lexing.position) (
+# 128 "minirust/parser.mly"
+                    o
+# 1066 "minirust/parser__mock.ml.mock"
+   : 'tv_binop) (_startpos_o_ : Lexing.position) (_endpos_o_ : Lexing.position) (_startofs_o_ : int) (_endofs_o_ : int) (_loc_o_ : Lexing.position * Lexing.position) (
+# 128 "minirust/parser.mly"
+  e1
+# 1070 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_e1_ : Lexing.position) (_endpos_e1_ : Lexing.position) (_startofs_e1_ : int) (_endofs_e1_ : int) (_loc_e1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 128 "minirust/parser.mly"
+                                                   ( Ebinop (o, e1, e2) )
+# 1075 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 127 "minirust/parser.mly"
+  c
+# 1080 "minirust/parser__mock.ml.mock"
+   : (
+# 6 "minirust/parser.mly"
+       (Ast_types.constant)
+# 1084 "minirust/parser__mock.ml.mock"
+  )) (_startpos_c_ : Lexing.position) (_endpos_c_ : Lexing.position) (_startofs_c_ : int) (_endofs_c_ : int) (_loc_c_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__true__ ->
+    
+# 127 "minirust/parser.mly"
+                                                   ( Econst c )
+# 1089 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 151 "minirust/parser.mly"
+               _3
+# 1094 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
+# 151 "minirust/parser.mly"
+         e
+# 1098 "minirust/parser__mock.ml.mock"
+   : 'tv_expr) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 151 "minirust/parser.mly"
+ _1
+# 1102 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 151 "minirust/parser.mly"
+                                                   ( e.edesc )
+# 1107 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 150 "minirust/parser.mly"
+                                     _4
+# 1112 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__4_ : Lexing.position) (_endpos__4_ : Lexing.position) (_startofs__4_ : int) (_endofs__4_ : int) (_loc__4_ : Lexing.position * Lexing.position) (
+# 150 "minirust/parser.mly"
+                  el
+# 1116 "minirust/parser__mock.ml.mock"
+   : 'tv_comma_list_expr_) (_startpos_el_ : Lexing.position) (_endpos_el_ : Lexing.position) (_startofs_el_ : int) (_endofs_el_ : int) (_loc_el_ : Lexing.position * Lexing.position) (
+# 150 "minirust/parser.mly"
+          _2
+# 1120 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 150 "minirust/parser.mly"
+  id
+# 1124 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 150 "minirust/parser.mly"
+                                                   ( Ecall (id, el) )
+# 1129 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 149 "minirust/parser.mly"
+         _2
+# 1134 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 149 "minirust/parser.mly"
+ _1
+# 1138 "minirust/parser__mock.ml.mock"
+   : 'tv_false_) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 149 "minirust/parser.mly"
+                                                   ( Ereturn None )
+# 1143 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 148 "minirust/parser.mly"
+         e
+# 1148 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 148 "minirust/parser.mly"
+ _1
+# 1152 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 148 "minirust/parser.mly"
+                                                   ( Ereturn (Some e) )
+# 1157 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 147 "minirust/parser.mly"
+ _1
+# 1162 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 147 "minirust/parser.mly"
+                                                   ( Ebreak )
+# 1167 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 146 "minirust/parser.mly"
+                                            _5
+# 1172 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__5_ : Lexing.position) (_endpos__5_ : Lexing.position) (_startofs__5_ : int) (_endofs__5_ : int) (_loc__5_ : Lexing.position * Lexing.position) (
+# 146 "minirust/parser.mly"
+                        fl
+# 1176 "minirust/parser__mock.ml.mock"
+   : 'tv_comma_list_field_) (_startpos_fl_ : Lexing.position) (_endpos_fl_ : Lexing.position) (_startofs_fl_ : int) (_endofs_fl_ : int) (_loc_fl_ : Lexing.position * Lexing.position) (
+# 146 "minirust/parser.mly"
+                  _3
+# 1180 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
+# 146 "minirust/parser.mly"
+          id
+# 1184 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) (
+# 146 "minirust/parser.mly"
+ _1
+# 1188 "minirust/parser__mock.ml.mock"
+   : 'tv_false_) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 146 "minirust/parser.mly"
+                                                   ( Econstr_stru (id, fl) )
+# 1193 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 145 "minirust/parser.mly"
+        _2
+# 1198 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 145 "minirust/parser.mly"
+ _1
+# 1202 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 145 "minirust/parser.mly"
+                                                   ( Eunit )
+# 1207 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 144 "minirust/parser.mly"
+                       id
+# 1212 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) (
+# 144 "minirust/parser.mly"
+                  _2
+# 1216 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 144 "minirust/parser.mly"
+  e
+# 1220 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 144 "minirust/parser.mly"
+                                                   ( Edot (e, id) )
+# 1225 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 143 "minirust/parser.mly"
+  id
+# 1230 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 143 "minirust/parser.mly"
+                                                   ( Evar id )
+# 1235 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 136 "minirust/parser.mly"
+                      e
+# 1240 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 136 "minirust/parser.mly"
+         mut
+# 1244 "minirust/parser__mock.ml.mock"
+   : 'tv_mutornot) (_startpos_mut_ : Lexing.position) (_endpos_mut_ : Lexing.position) (_startofs_mut_ : int) (_endofs_mut_ : int) (_loc_mut_ : Lexing.position * Lexing.position) (
+# 136 "minirust/parser.mly"
+ _1
+# 1248 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 136 "minirust/parser.mly"
+                                                   (
+    Eborrow(NotMut,
+      { edesc = Eborrow (mut, e);
+        eloc = _sloc;
+        etyp = None }
+    )
+  )
+# 1259 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 135 "minirust/parser.mly"
+                   e
+# 1264 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 135 "minirust/parser.mly"
+      mut
+# 1268 "minirust/parser__mock.ml.mock"
+   : 'tv_mutornot) (_startpos_mut_ : Lexing.position) (_endpos_mut_ : Lexing.position) (_startofs_mut_ : int) (_endofs_mut_ : int) (_loc_mut_ : Lexing.position * Lexing.position) (
+# 135 "minirust/parser.mly"
+ _1
+# 1272 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 135 "minirust/parser.mly"
+                                                   ( Eborrow (mut, e) )
+# 1277 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 134 "minirust/parser.mly"
+       e
+# 1282 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 134 "minirust/parser.mly"
+ _1
+# 1286 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 134 "minirust/parser.mly"
+                                                   ( Ederef e )
+# 1291 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 133 "minirust/parser.mly"
+      c
+# 1296 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_c_ : Lexing.position) (_endpos_c_ : Lexing.position) (_startofs_c_ : int) (_endofs_c_ : int) (_loc_c_ : Lexing.position * Lexing.position) (
+# 133 "minirust/parser.mly"
+ _1
+# 1300 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 133 "minirust/parser.mly"
+                                                   ( Eunop (Unot, c) )
+# 1305 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 132 "minirust/parser.mly"
+        e
+# 1310 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 132 "minirust/parser.mly"
+ _1
+# 1314 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 132 "minirust/parser.mly"
+                                                   ( Eunop (Uneg, e) )
+# 1319 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 131 "minirust/parser.mly"
+                       e2
+# 1324 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_e2_ : Lexing.position) (_endpos_e2_ : Lexing.position) (_startofs_e2_ : int) (_endofs_e2_ : int) (_loc_e2_ : Lexing.position * Lexing.position) (
+# 131 "minirust/parser.mly"
+                   _2
+# 1328 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 131 "minirust/parser.mly"
+  e1
+# 1332 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_e1_ : Lexing.position) (_endpos_e1_ : Lexing.position) (_startofs_e1_ : int) (_endofs_e1_ : int) (_loc_e1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 131 "minirust/parser.mly"
+                                                   ( Eassign (e1, e2) )
+# 1337 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 130 "minirust/parser.mly"
+                            c2
+# 1342 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_c2_ : Lexing.position) (_endpos_c2_ : Lexing.position) (_startofs_c2_ : int) (_endofs_c2_ : int) (_loc_c2_ : Lexing.position * Lexing.position) (
+# 130 "minirust/parser.mly"
+                   _2
+# 1346 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 130 "minirust/parser.mly"
+  c1
+# 1350 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_c1_ : Lexing.position) (_endpos_c1_ : Lexing.position) (_startofs_c1_ : int) (_endofs_c1_ : int) (_loc_c1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 130 "minirust/parser.mly"
+                                                   ( Eor  (c1, c2) )
+# 1355 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 129 "minirust/parser.mly"
+                           c2
+# 1360 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_c2_ : Lexing.position) (_endpos_c2_ : Lexing.position) (_startofs_c2_ : int) (_endofs_c2_ : int) (_loc_c2_ : Lexing.position * Lexing.position) (
+# 129 "minirust/parser.mly"
+                   _2
+# 1364 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 129 "minirust/parser.mly"
+  c1
+# 1368 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_c1_ : Lexing.position) (_endpos_c1_ : Lexing.position) (_startofs_c1_ : int) (_endofs_c1_ : int) (_loc_c1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 129 "minirust/parser.mly"
+                                                   ( Eand (c1, c2) )
+# 1373 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 128 "minirust/parser.mly"
+                            e2
+# 1378 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_e2_ : Lexing.position) (_endpos_e2_ : Lexing.position) (_startofs_e2_ : int) (_endofs_e2_ : int) (_loc_e2_ : Lexing.position * Lexing.position) (
+# 128 "minirust/parser.mly"
+                    o
+# 1382 "minirust/parser__mock.ml.mock"
+   : 'tv_binop) (_startpos_o_ : Lexing.position) (_endpos_o_ : Lexing.position) (_startofs_o_ : int) (_endofs_o_ : int) (_loc_o_ : Lexing.position * Lexing.position) (
+# 128 "minirust/parser.mly"
+  e1
+# 1386 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_e1_ : Lexing.position) (_endpos_e1_ : Lexing.position) (_startofs_e1_ : int) (_endofs_e1_ : int) (_loc_e1_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 128 "minirust/parser.mly"
+                                                   ( Ebinop (o, e1, e2) )
+# 1391 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 127 "minirust/parser.mly"
+  c
+# 1396 "minirust/parser__mock.ml.mock"
+   : (
+# 6 "minirust/parser.mly"
+       (Ast_types.constant)
+# 1400 "minirust/parser__mock.ml.mock"
+  )) (_startpos_c_ : Lexing.position) (_endpos_c_ : Lexing.position) (_startofs_c_ : int) (_endofs_c_ : int) (_loc_c_ : Lexing.position * Lexing.position) : 'tv_expr_without_block__false__ ->
+    
+# 127 "minirust/parser.mly"
+                                                   ( Econst c )
+# 1405 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 154 "minirust/parser.mly"
+  e
+# 1410 "minirust/parser__mock.ml.mock"
+   : 'tv_loc_expr_expr_without_block__true___) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_expr_without_block_true__ ->
+    
+# 154 "minirust/parser.mly"
+                                           ( e )
+# 1415 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 154 "minirust/parser.mly"
+  e
+# 1420 "minirust/parser__mock.ml.mock"
+   : 'tv_loc_expr_expr_without_block__false___) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_expr_without_block_false__ ->
+    
+# 154 "minirust/parser.mly"
+                                           ( e )
+# 1425 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 160 "minirust/parser.mly"
+  e
+# 1430 "minirust/parser__mock.ml.mock"
+   : 'tv_if_expr) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_expr_with_block_ ->
+    
+# 160 "minirust/parser.mly"
+                                            ( e )
+# 1435 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 159 "minirust/parser.mly"
+                        b
+# 1440 "minirust/parser__mock.ml.mock"
+   : 'tv_block_expr) (_startpos_b_ : Lexing.position) (_endpos_b_ : Lexing.position) (_startofs_b_ : int) (_endofs_b_ : int) (_loc_b_ : Lexing.position * Lexing.position) (
+# 159 "minirust/parser.mly"
+        e
+# 1444 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__false__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 159 "minirust/parser.mly"
+ _1
+# 1448 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_with_block_ ->
+    
+# 159 "minirust/parser.mly"
+                                            ( Ewhile (e, b) )
+# 1453 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 158 "minirust/parser.mly"
+       e
+# 1458 "minirust/parser__mock.ml.mock"
+   : 'tv_block_expr) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 158 "minirust/parser.mly"
+ _1
+# 1462 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr_with_block_ ->
+    
+# 158 "minirust/parser.mly"
+                                            ( Eloop e )
+# 1467 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 157 "minirust/parser.mly"
+  e
+# 1472 "minirust/parser__mock.ml.mock"
+   : 'tv_block_expr) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_expr_with_block_ ->
+    
+# 157 "minirust/parser.mly"
+                                            ( e.edesc )
+# 1477 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 163 "minirust/parser.mly"
+  e
+# 1482 "minirust/parser__mock.ml.mock"
+   : 'tv_loc_expr_expr_with_block__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_expr_with_block ->
+    
+# 163 "minirust/parser.mly"
+                               ( e )
+# 1487 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 121 "minirust/parser.mly"
+  e
+# 1492 "minirust/parser__mock.ml.mock"
+   : 'tv_expr_with_block) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_expr__true__ ->
+    
+# 121 "minirust/parser.mly"
+                                         ( e )
+# 1497 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 120 "minirust/parser.mly"
+  e
+# 1502 "minirust/parser__mock.ml.mock"
+   : 'tv_expr_without_block_true__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_expr__true__ ->
+    
+# 120 "minirust/parser.mly"
+                                         ( e )
+# 1507 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 121 "minirust/parser.mly"
+  e
+# 1512 "minirust/parser__mock.ml.mock"
+   : 'tv_expr_with_block) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_expr__false__ ->
+    
+# 121 "minirust/parser.mly"
+                                         ( e )
+# 1517 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 120 "minirust/parser.mly"
+  e
+# 1522 "minirust/parser__mock.ml.mock"
+   : 'tv_expr_without_block_false__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_expr__false__ ->
+    
+# 120 "minirust/parser.mly"
+                                         ( e )
+# 1527 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 124 "minirust/parser.mly"
+  e
+# 1532 "minirust/parser__mock.ml.mock"
+   : 'tv_expr__true__) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_expr ->
+    
+# 124 "minirust/parser.mly"
+                 ( e )
+# 1537 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv_else_expr ->
+    
+# 172 "minirust/parser.mly"
+                    ( Eunit )
+# 1543 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 171 "minirust/parser.mly"
+       e
+# 1548 "minirust/parser__mock.ml.mock"
+   : 'tv_if_expr) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 171 "minirust/parser.mly"
+ _1
+# 1552 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_else_expr ->
+    
+# 171 "minirust/parser.mly"
+                    ( e )
+# 1557 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 170 "minirust/parser.mly"
+       b
+# 1562 "minirust/parser__mock.ml.mock"
+   : 'tv_block_expr) (_startpos_b_ : Lexing.position) (_endpos_b_ : Lexing.position) (_startofs_b_ : int) (_endofs_b_ : int) (_loc_b_ : Lexing.position * Lexing.position) (
+# 170 "minirust/parser.mly"
+ _1
+# 1566 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_else_expr ->
+    
+# 170 "minirust/parser.mly"
+                    ( b.edesc )
+# 1571 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 54 "minirust/parser.mly"
+                  ty
+# 1576 "minirust/parser__mock.ml.mock"
+   : 'tv_typ_false__lifetime_generics_) (_startpos_ty_ : Lexing.position) (_endpos_ty_ : Lexing.position) (_startofs_ty_ : int) (_endofs_ty_ : int) (_loc_ty_ : Lexing.position * Lexing.position) : 'tv_decl_typ ->
+    
+# 54 "minirust/parser.mly"
+                                                     ( ty )
+# 1581 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 67 "minirust/parser.mly"
+                 b
+# 1586 "minirust/parser__mock.ml.mock"
+   : 'tv_block_expr) (_startpos_b_ : Lexing.position) (_endpos_b_ : Lexing.position) (_startofs_b_ : int) (_endofs_b_ : int) (_loc_b_ : Lexing.position * Lexing.position) (
+# 67 "minirust/parser.mly"
+  o
+# 1590 "minirust/parser__mock.ml.mock"
+   : 'tv_where_clause) (_startpos_o_ : Lexing.position) (_endpos_o_ : Lexing.position) (_startofs_o_ : int) (_endofs_o_ : int) (_loc_o_ : Lexing.position * Lexing.position) (
+# 66 "minirust/parser.mly"
+                                                            r
+# 1594 "minirust/parser__mock.ml.mock"
+   : 'tv_return_type) (_startpos_r_ : Lexing.position) (_endpos_r_ : Lexing.position) (_startofs_r_ : int) (_endofs_r_ : int) (_loc_r_ : Lexing.position * Lexing.position) (
+# 66 "minirust/parser.mly"
+                                                    _6
+# 1598 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__6_ : Lexing.position) (_endpos__6_ : Lexing.position) (_startofs__6_ : int) (_endofs__6_ : int) (_loc__6_ : Lexing.position * Lexing.position) (
+# 66 "minirust/parser.mly"
+                               fl
+# 1602 "minirust/parser__mock.ml.mock"
+   : 'tv_comma_list_formal_) (_startpos_fl_ : Lexing.position) (_endpos_fl_ : Lexing.position) (_startofs_fl_ : int) (_endofs_fl_ : int) (_loc_fl_ : Lexing.position * Lexing.position) (
+# 66 "minirust/parser.mly"
+                       _4
+# 1606 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__4_ : Lexing.position) (_endpos__4_ : Lexing.position) (_startofs__4_ : int) (_endofs__4_ : int) (_loc__4_ : Lexing.position * Lexing.position) (
+# 66 "minirust/parser.mly"
+             g
+# 1610 "minirust/parser__mock.ml.mock"
+   : 'tv_generics) (_startpos_g_ : Lexing.position) (_endpos_g_ : Lexing.position) (_startofs_g_ : int) (_endofs_g_ : int) (_loc_g_ : Lexing.position * Lexing.position) (
+# 66 "minirust/parser.mly"
+     f
+# 1614 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos_f_ : Lexing.position) (_endpos_f_ : Lexing.position) (_startofs_f_ : int) (_endofs_f_ : int) (_loc_f_ : Lexing.position * Lexing.position) (
+# 66 "minirust/parser.mly"
+ _1
+# 1618 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_decl ->
+    
+# 68 "minirust/parser.mly"
+   ( Dfundef {
+      fname = f;
+      flfts = g;
+      fformals = fl;
+      freturn = r;
+      foutlives = o;
+      fbody = b;
+      floc = _sloc }
+    )
+# 1631 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 58 "minirust/parser.mly"
+                                                                              _7
+# 1636 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__7_ : Lexing.position) (_endpos__7_ : Lexing.position) (_startofs__7_ : int) (_endofs__7_ : int) (_loc__7_ : Lexing.position * Lexing.position) (
+# 58 "minirust/parser.mly"
+                                                   fl
+# 1640 "minirust/parser__mock.ml.mock"
+   : 'tv_comma_list_struct_field_) (_startpos_fl_ : Lexing.position) (_endpos_fl_ : Lexing.position) (_startofs_fl_ : int) (_endofs_fl_ : int) (_loc_fl_ : Lexing.position * Lexing.position) (
+# 58 "minirust/parser.mly"
+                                             _5
+# 1644 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__5_ : Lexing.position) (_endpos__5_ : Lexing.position) (_startofs__5_ : int) (_endofs__5_ : int) (_loc__5_ : Lexing.position * Lexing.position) (
+# 58 "minirust/parser.mly"
+                                   g
+# 1648 "minirust/parser__mock.ml.mock"
+   : 'tv_generics) (_startpos_g_ : Lexing.position) (_endpos_g_ : Lexing.position) (_startofs_g_ : int) (_endofs_g_ : int) (_loc_g_ : Lexing.position * Lexing.position) (
+# 58 "minirust/parser.mly"
+                          id
+# 1652 "minirust/parser__mock.ml.mock"
+   : 'tv_ident) (_startpos_id_ : Lexing.position) (_endpos_id_ : Lexing.position) (_startofs_id_ : int) (_endofs_id_ : int) (_loc_id_ : Lexing.position * Lexing.position) (
+# 58 "minirust/parser.mly"
+                  _2
+# 1656 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 58 "minirust/parser.mly"
+  copy
+# 1660 "minirust/parser__mock.ml.mock"
+   : 'tv_option_DERIVECOPY_) (_startpos_copy_ : Lexing.position) (_endpos_copy_ : Lexing.position) (_startofs_copy_ : int) (_endofs_copy_ : int) (_loc_copy_ : Lexing.position * Lexing.position) : 'tv_decl ->
+    
+# 59 "minirust/parser.mly"
+   ( Dstruct {
+      sname = id;
+      slfts = g;
+      sfields = fl;
+      scopy = copy = Some ();
+      sloc = _sloc }
+    )
+# 1671 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+            l
+# 1676 "minirust/parser__mock.ml.mock"
+   : 'tv_comma_list_struct_field_) (_startpos_l_ : Lexing.position) (_endpos_l_ : Lexing.position) (_startofs_l_ : int) (_endofs_l_ : int) (_loc_l_ : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+     _2
+# 1680 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+  x
+# 1684 "minirust/parser__mock.ml.mock"
+   : 'tv_struct_field) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_comma_list_struct_field_ ->
+    
+# 43 "minirust/parser.mly"
+                              ( x::l )
+# 1689 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 42 "minirust/parser.mly"
+  x
+# 1694 "minirust/parser__mock.ml.mock"
+   : 'tv_struct_field) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_comma_list_struct_field_ ->
+    
+# 42 "minirust/parser.mly"
+                              ( [x] )
+# 1699 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv_comma_list_struct_field_ ->
+    
+# 41 "minirust/parser.mly"
+                              ( [] )
+# 1705 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+            l
+# 1710 "minirust/parser__mock.ml.mock"
+   : 'tv_comma_list_lifetime_) (_startpos_l_ : Lexing.position) (_endpos_l_ : Lexing.position) (_startofs_l_ : int) (_endofs_l_ : int) (_loc_l_ : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+     _2
+# 1714 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+  x
+# 1718 "minirust/parser__mock.ml.mock"
+   : 'tv_lifetime) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_comma_list_lifetime_ ->
+    
+# 43 "minirust/parser.mly"
+                              ( x::l )
+# 1723 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 42 "minirust/parser.mly"
+  x
+# 1728 "minirust/parser__mock.ml.mock"
+   : 'tv_lifetime) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_comma_list_lifetime_ ->
+    
+# 42 "minirust/parser.mly"
+                              ( [x] )
+# 1733 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv_comma_list_lifetime_ ->
+    
+# 41 "minirust/parser.mly"
+                              ( [] )
+# 1739 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+            l
+# 1744 "minirust/parser__mock.ml.mock"
+   : 'tv_comma_list_formal_) (_startpos_l_ : Lexing.position) (_endpos_l_ : Lexing.position) (_startofs_l_ : int) (_endofs_l_ : int) (_loc_l_ : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+     _2
+# 1748 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+  x
+# 1752 "minirust/parser__mock.ml.mock"
+   : 'tv_formal) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_comma_list_formal_ ->
+    
+# 43 "minirust/parser.mly"
+                              ( x::l )
+# 1757 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 42 "minirust/parser.mly"
+  x
+# 1762 "minirust/parser__mock.ml.mock"
+   : 'tv_formal) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_comma_list_formal_ ->
+    
+# 42 "minirust/parser.mly"
+                              ( [x] )
+# 1767 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv_comma_list_formal_ ->
+    
+# 41 "minirust/parser.mly"
+                              ( [] )
+# 1773 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+            l
+# 1778 "minirust/parser__mock.ml.mock"
+   : 'tv_comma_list_field_) (_startpos_l_ : Lexing.position) (_endpos_l_ : Lexing.position) (_startofs_l_ : int) (_endofs_l_ : int) (_loc_l_ : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+     _2
+# 1782 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+  x
+# 1786 "minirust/parser__mock.ml.mock"
+   : 'tv_field) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_comma_list_field_ ->
+    
+# 43 "minirust/parser.mly"
+                              ( x::l )
+# 1791 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 42 "minirust/parser.mly"
+  x
+# 1796 "minirust/parser__mock.ml.mock"
+   : 'tv_field) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_comma_list_field_ ->
+    
+# 42 "minirust/parser.mly"
+                              ( [x] )
+# 1801 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv_comma_list_field_ ->
+    
+# 41 "minirust/parser.mly"
+                              ( [] )
+# 1807 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+            l
+# 1812 "minirust/parser__mock.ml.mock"
+   : 'tv_comma_list_expr_) (_startpos_l_ : Lexing.position) (_endpos_l_ : Lexing.position) (_startofs_l_ : int) (_endofs_l_ : int) (_loc_l_ : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+     _2
+# 1816 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+  x
+# 1820 "minirust/parser__mock.ml.mock"
+   : 'tv_expr) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_comma_list_expr_ ->
+    
+# 43 "minirust/parser.mly"
+                              ( x::l )
+# 1825 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 42 "minirust/parser.mly"
+  x
+# 1830 "minirust/parser__mock.ml.mock"
+   : 'tv_expr) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_comma_list_expr_ ->
+    
+# 42 "minirust/parser.mly"
+                              ( [x] )
+# 1835 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv_comma_list_expr_ ->
+    
+# 41 "minirust/parser.mly"
+                              ( [] )
+# 1841 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+            l
+# 1846 "minirust/parser__mock.ml.mock"
+   : 'tv_comma_list___anonymous_5_) (_startpos_l_ : Lexing.position) (_endpos_l_ : Lexing.position) (_startofs_l_ : int) (_endofs_l_ : int) (_loc_l_ : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+     _2
+# 1850 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 43 "minirust/parser.mly"
+  x
+# 1854 "minirust/parser__mock.ml.mock"
+   : 'tv___anonymous_5) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_comma_list___anonymous_5_ ->
+    
+# 43 "minirust/parser.mly"
+                              ( x::l )
+# 1859 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 42 "minirust/parser.mly"
+  x
+# 1864 "minirust/parser__mock.ml.mock"
+   : 'tv___anonymous_5) (_startpos_x_ : Lexing.position) (_endpos_x_ : Lexing.position) (_startofs_x_ : int) (_endofs_x_ : int) (_loc_x_ : Lexing.position * Lexing.position) : 'tv_comma_list___anonymous_5_ ->
+    
+# 42 "minirust/parser.mly"
+                              ( [x] )
+# 1869 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv_comma_list___anonymous_5_ ->
+    
+# 41 "minirust/parser.mly"
+                              ( [] )
+# 1875 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 55 "minirust/parser.mly"
+                  ty
+# 1880 "minirust/parser__mock.ml.mock"
+   : 'tv_typ___anonymous_2___anonymous_3___anonymous_4_) (_startpos_ty_ : Lexing.position) (_endpos_ty_ : Lexing.position) (_startofs_ty_ : int) (_endofs_ty_ : int) (_loc_ty_ : Lexing.position * Lexing.position) : 'tv_body_typ ->
+    
+# 55 "minirust/parser.mly"
+                                         ( ty )
+# 1885 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 95 "minirust/parser.mly"
+  e
+# 1890 "minirust/parser__mock.ml.mock"
+   : 'tv_loc_expr___anonymous_7_) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) : 'tv_block_expr ->
+    
+# 95 "minirust/parser.mly"
+                                                       ( e )
+# 1895 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 188 "minirust/parser.mly"
+ _1
+# 1900 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_binop ->
+    
+# 188 "minirust/parser.mly"
+          ( Bge )
+# 1905 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 187 "minirust/parser.mly"
+ _1
+# 1910 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_binop ->
+    
+# 187 "minirust/parser.mly"
+          ( Bgt )
+# 1915 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 186 "minirust/parser.mly"
+ _1
+# 1920 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_binop ->
+    
+# 186 "minirust/parser.mly"
+          ( Ble )
+# 1925 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 185 "minirust/parser.mly"
+ _1
+# 1930 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_binop ->
+    
+# 185 "minirust/parser.mly"
+          ( Blt )
+# 1935 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 184 "minirust/parser.mly"
+ _1
+# 1940 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_binop ->
+    
+# 184 "minirust/parser.mly"
+          ( Bneq )
+# 1945 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 183 "minirust/parser.mly"
+ _1
+# 1950 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_binop ->
+    
+# 183 "minirust/parser.mly"
+          ( Beqeq )
+# 1955 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 182 "minirust/parser.mly"
+ _1
+# 1960 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_binop ->
+    
+# 182 "minirust/parser.mly"
+          ( Bmod )
+# 1965 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 181 "minirust/parser.mly"
+ _1
+# 1970 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_binop ->
+    
+# 181 "minirust/parser.mly"
+          ( Bdiv )
+# 1975 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 180 "minirust/parser.mly"
+ _1
+# 1980 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_binop ->
+    
+# 180 "minirust/parser.mly"
+          ( Bmul )
+# 1985 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 179 "minirust/parser.mly"
+ _1
+# 1990 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_binop ->
+    
+# 179 "minirust/parser.mly"
+          ( Bsub )
+# 1995 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 178 "minirust/parser.mly"
+ _1
+# 2000 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_binop ->
+    
+# 178 "minirust/parser.mly"
+          ( Badd )
+# 2005 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 109 "minirust/parser.mly"
+                                                             e
+# 2010 "minirust/parser__mock.ml.mock"
+   : 'tv_expr) (_startpos_e_ : Lexing.position) (_endpos_e_ : Lexing.position) (_startofs_e_ : int) (_endofs_e_ : int) (_loc_e_ : Lexing.position * Lexing.position) (
+# 109 "minirust/parser.mly"
+                                                          _1
+# 2014 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv___anonymous_9 ->
+    
+# 109 "minirust/parser.mly"
+                                                                    (e)
+# 2019 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv___anonymous_8 ->
+    
+# 98 "minirust/parser.mly"
+                         ( Eunit )
+# 2025 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 95 "minirust/parser.mly"
+                                  _3
+# 2030 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
+# 95 "minirust/parser.mly"
+                  sl
+# 2034 "minirust/parser__mock.ml.mock"
+   : 'tv_stmts_or_unit) (_startpos_sl_ : Lexing.position) (_endpos_sl_ : Lexing.position) (_startofs_sl_ : int) (_endofs_sl_ : int) (_loc_sl_ : Lexing.position * Lexing.position) (
+# 95 "minirust/parser.mly"
+             _1
+# 2038 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv___anonymous_7 ->
+    
+# 95 "minirust/parser.mly"
+                                        ( Eblock sl )
+# 2043 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 89 "minirust/parser.mly"
+                  l
+# 2048 "minirust/parser__mock.ml.mock"
+   : 'tv_comma_list___anonymous_5_) (_startpos_l_ : Lexing.position) (_endpos_l_ : Lexing.position) (_startofs_l_ : int) (_endofs_l_ : int) (_loc_l_ : Lexing.position * Lexing.position) (
+# 89 "minirust/parser.mly"
+            _1
+# 2052 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv___anonymous_6 ->
+    
+# 89 "minirust/parser.mly"
+                                                                           ( l )
+# 2057 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 89 "minirust/parser.mly"
+                                                 l2
+# 2062 "minirust/parser__mock.ml.mock"
+   : 'tv_lifetime) (_startpos_l2_ : Lexing.position) (_endpos_l2_ : Lexing.position) (_startofs_l2_ : int) (_endofs_l2_ : int) (_loc_l2_ : Lexing.position * Lexing.position) (
+# 89 "minirust/parser.mly"
+                                          _2
+# 2066 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 89 "minirust/parser.mly"
+                               l1
+# 2070 "minirust/parser__mock.ml.mock"
+   : 'tv_lifetime) (_startpos_l1_ : Lexing.position) (_endpos_l1_ : Lexing.position) (_startofs_l1_ : int) (_endofs_l1_ : int) (_loc_l1_ : Lexing.position * Lexing.position) : 'tv___anonymous_5 ->
+    
+# 89 "minirust/parser.mly"
+                                                             ( (l1, l2) )
+# 2075 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv___anonymous_4 ->
+    
+# 55 "minirust/parser.mly"
+                                 ( [] )
+# 2081 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv___anonymous_3 ->
+    
+# 55 "minirust/parser.mly"
+                             ()
+# 2087 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) : 'tv___anonymous_2 ->
+    
+# 55 "minirust/parser.mly"
+                         ()
+# 2093 "minirust/parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 52 "minirust/parser.mly"
+                                     _3
+# 2098 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
+# 52 "minirust/parser.mly"
+               g
+# 2102 "minirust/parser__mock.ml.mock"
+   : 'tv_comma_list_lifetime_) (_startpos_g_ : Lexing.position) (_endpos_g_ : Lexing.position) (_startofs_g_ : int) (_endofs_g_ : int) (_loc_g_ : Lexing.position * Lexing.position) (
+# 52 "minirust/parser.mly"
+            _1
+# 2106 "minirust/parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv___anonymous_1 ->
+    
+# 52 "minirust/parser.mly"
+                                         ( g )
+# 2111 "minirust/parser__mock.ml.mock"
+     in
+  ((let rec diverge() = diverge() in diverge()) : 'tv_where_clause * 'tv_typ_false__lifetime_generics_ * 'tv_typ___anonymous_2___anonymous_3___anonymous_4_ * 'tv_true_ * 'tv_struct_field * 'tv_stmts_or_unit * 'tv_return_type * 'tv_prog * 'tv_option___anonymous_9_ * 'tv_option_DERIVECOPY_ * 'tv_nonempty_stmts * 'tv_mutornot * 'tv_loption___anonymous_6_ * 'tv_loption___anonymous_1_ * 'tv_loc_expr_expr_without_block__true___ * 'tv_loc_expr_expr_without_block__false___ * 'tv_loc_expr_expr_with_block__ * 'tv_loc_expr_else_expr_ * 'tv_loc_expr___anonymous_8_ * 'tv_loc_expr___anonymous_7_ * 'tv_list_decl_ * 'tv_lifetime * 'tv_let_stmt * 'tv_if_expr * 'tv_ident * 'tv_generics * 'tv_formal * 'tv_field * 'tv_false_ * 'tv_expr_without_block__true__ * 'tv_expr_without_block__false__ * 'tv_expr_without_block_true__ * 'tv_expr_without_block_false__ * 'tv_expr_with_block_ * 'tv_expr_with_block * 'tv_expr__true__ * 'tv_expr__false__ * 'tv_expr * 'tv_else_expr * 'tv_decl_typ * 'tv_decl * 'tv_comma_list_struct_field_ * 'tv_comma_list_lifetime_ * 'tv_comma_list_formal_ * 'tv_comma_list_field_ * 'tv_comma_list_expr_ * 'tv_comma_list___anonymous_5_ * 'tv_body_typ * 'tv_block_expr * 'tv_binop * 'tv___anonymous_9 * 'tv___anonymous_8 * 'tv___anonymous_7 * 'tv___anonymous_6 * 'tv___anonymous_5 * 'tv___anonymous_4 * 'tv___anonymous_3 * 'tv___anonymous_2 * 'tv___anonymous_1)
+
+and menhir_end_marker =
+  0

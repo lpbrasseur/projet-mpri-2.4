@@ -1,0 +1,109 @@
+type token =
+    WHILE
+  | WHERE
+  | STRUCT
+  | STAR
+  | SEMICOLON
+  | RPAREN
+  | RETURN
+  | RBRA
+  | PLUS
+  | PERCENT
+  | NOT
+  | NEQ
+  | MUT
+  | MINUS
+  | LT
+  | LPAREN
+  | LOOP
+  | LIFETIME of string
+  | LET
+  | LE
+  | LBRA
+  | IF
+  | IDENT of string
+  | I32
+  | GT
+  | GE
+  | FN
+  | EQEQ
+  | EQ
+  | EOF
+  | ELSE
+  | DUMMY
+  | DOT
+  | DIV
+  | DERIVECOPY
+  | CONSTANT of Ast_types.constant
+  | COMMA
+  | COLON
+  | BREAK
+  | BOOL
+  | BARBAR
+  | ARROW
+  | AMPAMP
+  | AMP
+val menhir_begin_marker : int
+val xv_where_clause : (Ast_types.lifetime * Ast_types.lifetime) list
+val xv_typ_false__lifetime_generics_ : Ast_types.lifetime Ast_types.typ
+val xv_typ___anonymous_2___anonymous_3___anonymous_4_ : unit Ast_types.typ
+val xv_true_ : unit
+val xv_struct_field : Ast_types.ident * Ast_types.full_typ
+val xv_stmts_or_unit : Ast_types.block
+val xv_return_type : Ast_types.lifetime Ast_types.typ
+val xv_prog : Ast_types.program
+val xv_option___anonymous_9_ : Ast_types.expr option
+val xv_option_DERIVECOPY_ : unit option
+val xv_nonempty_stmts : Ast_types.block
+val xv_mutornot : Ast_types.mut
+val xv_loption___anonymous_6_ :
+  (Ast_types.lifetime * Ast_types.lifetime) list
+val xv_loption___anonymous_1_ : Ast_types.lifetime list
+val xv_loc_expr_expr_without_block__true___ : Ast_types.expr
+val xv_loc_expr_expr_without_block__false___ : Ast_types.expr
+val xv_loc_expr_expr_with_block__ : Ast_types.expr
+val xv_loc_expr_else_expr_ : Ast_types.expr
+val xv_loc_expr___anonymous_8_ : Ast_types.expr
+val xv_loc_expr___anonymous_7_ : Ast_types.expr
+val xv_list_decl_ : Ast_types.program
+val xv_lifetime : Ast_types.lifetime
+val xv_let_stmt : Ast_types.expr
+val xv_if_expr : Ast_types.expr_desc
+val xv_ident : Ast_types.ident
+val xv_generics : Ast_types.lifetime list
+val xv_formal : Ast_types.ident * Ast_types.mut * Ast_types.full_typ
+val xv_field : Ast_types.ident * Ast_types.expr
+val xv_false_ : Ast_types.lifetime
+val xv_expr_without_block__true__ : Ast_types.expr_desc
+val xv_expr_without_block__false__ : Ast_types.expr_desc
+val xv_expr_without_block_true__ : Ast_types.expr
+val xv_expr_without_block_false__ : Ast_types.expr
+val xv_expr_with_block_ : Ast_types.expr_desc
+val xv_expr_with_block : Ast_types.expr
+val xv_expr__true__ : Ast_types.expr
+val xv_expr__false__ : Ast_types.expr
+val xv_expr : Ast_types.expr
+val xv_else_expr : Ast_types.expr_desc
+val xv_decl_typ : Ast_types.lifetime Ast_types.typ
+val xv_decl : Ast_types.decl
+val xv_comma_list_struct_field_ : (Ast_types.ident * Ast_types.full_typ) list
+val xv_comma_list_lifetime_ : Ast_types.lifetime list
+val xv_comma_list_formal_ :
+  (Ast_types.ident * Ast_types.mut * Ast_types.full_typ) list
+val xv_comma_list_field_ : (Ast_types.ident * Ast_types.expr) list
+val xv_comma_list_expr_ : Ast_types.expr list
+val xv_comma_list___anonymous_5_ :
+  (Ast_types.lifetime * Ast_types.lifetime) list
+val xv_body_typ : Ast_types.erased_typ
+val xv_block_expr : Ast_types.expr
+val xv_binop : Ast_types.binop
+val xv___anonymous_9 : Ast_types.expr
+val xv___anonymous_8 : Ast_types.expr_desc
+val xv___anonymous_7 : Ast_types.expr_desc
+val xv___anonymous_6 : (Ast_types.lifetime * Ast_types.lifetime) list
+val xv___anonymous_5 : Ast_types.lifetime * Ast_types.lifetime
+val xv___anonymous_4 : unit list
+val xv___anonymous_3 : unit
+val xv___anonymous_2 : unit
+val xv___anonymous_1 : Ast_types.lifetime list
+val menhir_end_marker : int
