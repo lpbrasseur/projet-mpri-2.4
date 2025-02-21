@@ -1,1 +1,0 @@
-module B = struct end

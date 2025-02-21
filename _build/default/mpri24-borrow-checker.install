@@ -1,8 +1,0 @@
-lib: [
-  "_build/install/default/lib/mpri24-borrow-checker/META"
-  "_build/install/default/lib/mpri24-borrow-checker/dune-package"
-  "_build/install/default/lib/mpri24-borrow-checker/opam"
-]
-doc: [
-  "_build/install/default/doc/mpri24-borrow-checker/LICENSE"
-]

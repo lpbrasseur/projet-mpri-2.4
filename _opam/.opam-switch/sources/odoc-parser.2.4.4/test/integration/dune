@@ -1,8 +1,0 @@
-(cram
- (deps
-  (package odoc)))
-
-(cram
- (applies_to json_expansion_with_sources)
- (enabled_if
-  (> %{ocaml_version} 4.14.0)))

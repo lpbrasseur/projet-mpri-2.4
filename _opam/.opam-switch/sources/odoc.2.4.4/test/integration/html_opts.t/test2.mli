@@ -1,3 +1,0 @@
-val v : Test.t
-
-

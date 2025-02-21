@@ -1,1 +1,0 @@
-minirust/typecheck.mli:

@@ -1,4 +1,0 @@
-(lang dune 3.17)
-(name mpri24-borrow-checker)
-(sections (lib .) (doc ../../doc/mpri24-borrow-checker))
-(files (lib (META dune-package opam)) (doc (LICENSE)))
