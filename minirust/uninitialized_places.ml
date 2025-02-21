@@ -71,7 +71,7 @@ let go mir : analysis_results =
     (* To complete this module, one can read file active_borrows.ml, which contains a
       similar data flow analysis. *)
 
-    let foreach_root go = () (* TODO *)
+    let foreach_root go = go mir.mentry all_places
     let foreach_successor lbl state go = () (* TODO *)
   end in
   let module Fix = Fix.DataFlow.ForIntSegment (Instrs) (Prop) (Graph) in
