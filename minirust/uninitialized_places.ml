@@ -72,7 +72,19 @@ let go mir : analysis_results =
       similar data flow analysis. *)
 
     let foreach_root go = go mir.mentry all_places
-    let foreach_successor lbl state go = () (* TODO *)
+
+    let foreach_successor lbl state go =
+      match fst mir.minstrs.(lbl) with
+      | Iassign (pl, _, next) -> go next (move_or_copy pl state)
+      | Ideinit (l, next) -> go next (deinitialize (PlLocal l) state)
+      | Igoto next -> go next state
+      | Iif (_, lbl1, lbl2) ->
+          go lbl1 state;
+          go lbl2 state
+      | Ireturn -> ()
+      | Icall (_, ll, pl, next) ->
+          let state = List.fold_left (fun s l -> move_or_copy (PlLocal l) s) state ll in
+          go next (initialize pl state)
   end in
   let module Fix = Fix.DataFlow.ForIntSegment (Instrs) (Prop) (Graph) in
   fun i -> Option.value (Fix.solution i) ~default:PlaceSet.empty
