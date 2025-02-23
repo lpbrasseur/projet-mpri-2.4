@@ -71,6 +71,9 @@ let go mir : analysis_results =
 
     let foreach_successor lbl state go =
       match fst mir.minstrs.(lbl) with
+      | Iassign (pl, RVplace pl', next) ->
+          if typ_is_copy (typ_of_place mir pl') then go next (initialize pl state)
+          else go next (initialize pl (deinitialize pl' state))
       | Iassign (pl, _, next) -> go next (initialize pl state)
       | Ideinit (l, next) -> go next (deinitialize (PlLocal l) state)
       | Igoto next -> go next state
