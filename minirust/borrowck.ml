@@ -8,7 +8,6 @@ open Active_borrows
 
 (* This function computes the set of alive lifetimes at every program point. *)
 let compute_lft_sets mir : lifetime -> PpSet.t =
-
   (* The [outlives] variable contains all the outlives relations between the
     lifetime variables of the function. *)
   let outlives = ref LMap.empty in
@@ -117,12 +116,35 @@ let borrowck mir =
 
   (* We check the code honors the non-mutability of shared borrows. *)
   Array.iteri
-    (fun _ (instr, loc) ->
+    (fun lbl (instr, loc) ->
       (* TODO: check that we never write to shared borrows, and that we never create mutable borrows
         below shared borrows. Function [place_mut] can be used to determine if a place is mutable, i.e., if it
         does not dereference a shared borrow. *)
-      ()
-    )
+      let uninit = uninitialized_places lbl in
+
+      let check_write_shared pl =
+        if
+          PlaceSet.exists
+            (fun plnotmut -> is_subplace pl plnotmut && place_mut mir plnotmut = NotMut)
+            uninit
+        then Error.error loc "Writing at or below a shared borrow"
+      in
+
+      let check_create_below_shared rvpl =
+        if
+          PlaceSet.exists
+            (fun plnotmut -> is_subplace rvpl plnotmut && place_mut mir plnotmut = NotMut)
+            uninit
+        then
+          Error.error loc "Creating a mutable borrow from or from below a shared borrow"
+      in
+
+      match instr with
+      | Iassign (pl, RVborrow (Mut, rvpl), _) ->
+          check_create_below_shared rvpl;
+          check_write_shared pl
+      | Iassign (pl, _, _) -> check_write_shared pl
+      | _ -> ())
     mir.minstrs;
 
   let lft_sets = compute_lft_sets mir in
@@ -209,6 +231,5 @@ let borrowck mir =
       | Iassign (_, RVborrow (mut, pl), _) ->
           if conflicting_borrow (mut = Mut) pl then
             Error.error loc "There is a borrow conflicting this borrow."
-      | _ -> () (* TODO: complete the other cases*)
-    )
+      | _ -> () (* TODO: complete the other cases*))
     mir.minstrs
