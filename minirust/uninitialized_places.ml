@@ -50,7 +50,6 @@ let go mir : analysis_results =
   (* Effect of using (copying or moving) a place [pl] on the abstract state [state]. *)
   let move_or_copy pl state =
     if typ_is_copy (typ_of_place mir pl) then state else deinitialize pl state
-    (* TODO : This code is incorrect. Replace with correct code. *)
   in
 
   (* These modules are parameters of the [Fix.DataFlow.ForIntSegment] functor below. *)
@@ -72,8 +71,16 @@ let go mir : analysis_results =
     let foreach_successor lbl state go =
       match fst mir.minstrs.(lbl) with
       | Iassign (pl, RVplace pl', next) ->
-          if typ_is_copy (typ_of_place mir pl') then go next (initialize pl state)
-          else go next (initialize pl (deinitialize pl' state))
+          go next (initialize pl (move_or_copy pl' state))
+      | Iassign (pl, RVmake (_, ll), next) ->
+          let state = List.fold_left (fun s l -> move_or_copy (PlLocal l) s) state ll in
+          go next (initialize pl state)
+      | Iassign (pl, RVbinop (_, l1, l2), next) ->
+          let state = move_or_copy (PlLocal l1) (move_or_copy (PlLocal l2) state) in
+          go next (initialize pl state)
+      | Iassign (pl, RVunop (_, l), next) ->
+          let state = move_or_copy (PlLocal l) state in
+          go next (initialize pl state)
       | Iassign (pl, _, next) -> go next (initialize pl state)
       | Ideinit (l, next) -> go next (deinitialize (PlLocal l) state)
       | Igoto next -> go next state
