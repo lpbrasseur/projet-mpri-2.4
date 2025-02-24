@@ -39,6 +39,41 @@ let compute_lft_sets mir : lifetime -> PpSet.t =
 
     SUGGESTION: use functions [typ_of_place], [fields_types_fresh] and [fn_prototype_fresh].
   *)
+  let rec constraint_from_typ f t1 t2 =
+    match t1, t2 with
+    | Tstruct (_, llft1), Tstruct (_, llft2) -> List.iter2 f llft1 llft2
+    | Tborrow (lft1, _, st1), Tborrow (lft2, _, st2) ->
+        f lft1 lft2;
+        constraint_from_typ f st1 st2
+    | _, _ -> ()
+  in
+  let unify_from_typ = constraint_from_typ unify_lft in
+
+  Array.iteri
+    (fun lbl (instr, loc) ->
+      match instr with
+      | Iassign (pl, RVplace pl', _) ->
+          unify_from_typ (typ_of_place mir pl) (typ_of_place mir pl')
+      | Iassign (pl, RVborrow (m, pl'), _) -> (
+          (* todo : a réécrire en prenant compte le pt 3 *)
+          match typ_of_place mir pl with
+          | Tborrow (_, _, t) -> unify_from_typ t (typ_of_place mir pl')
+          | _ -> failwith "unreachable branch")
+      | Iassign (pl, RVmake (str, ll), _) ->
+          let typl, typ = fields_types_fresh str in
+          let pl' = List.map (fun l -> PlLocal l) ll in
+          let typlloc = List.map (typ_of_place mir) pl' in
+          List.iter2 unify_from_typ typl typlloc;
+          unify_from_typ (typ_of_place mir pl) typ
+      | Icall (str, ll, pl, _) ->
+          let typl, typ, lftconstr = fn_prototype_fresh str in
+          let pl' = List.map (fun l -> PlLocal l) ll in
+          let typlloc = List.map (typ_of_place mir) pl' in
+          List.iter2 unify_from_typ typl typlloc;
+          unify_from_typ (typ_of_place mir pl) typ;
+          List.iter add_outlives lftconstr
+      | _ -> ())
+    mir.minstrs;
 
   (* The [living] variable contains constraints of the form "lifetime 'a should be
     alive at program point p". *)
