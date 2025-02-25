@@ -48,17 +48,22 @@ let compute_lft_sets mir : lifetime -> PpSet.t =
     | _, _ -> ()
   in
   let unify_from_typ = constraint_from_typ unify_lft in
+  let add_outlives_from_typ = constraint_from_typ (fun x y -> add_outlives (x, y)) in
+
+  let rec add_outlives_borrow_from_deref typ pl =
+    add_outlives_from_typ typ (typ_of_place mir pl);
+    match pl with
+    | PlLocal l -> ()
+    | PlDeref pl' | PlField (pl', _) -> add_outlives_borrow_from_deref typ pl'
+  in
 
   Array.iteri
     (fun lbl (instr, loc) ->
       match instr with
       | Iassign (pl, RVplace pl', _) ->
           unify_from_typ (typ_of_place mir pl) (typ_of_place mir pl')
-      | Iassign (pl, RVborrow (m, pl'), _) -> (
-          (* todo : a réécrire en prenant compte le pt 3 *)
-          match typ_of_place mir pl with
-          | Tborrow (_, _, t) -> unify_from_typ t (typ_of_place mir pl')
-          | _ -> failwith "unreachable branch")
+      | Iassign (pl, RVborrow (_, pl'), _) ->
+          add_outlives_borrow_from_deref (typ_of_place mir pl) pl'
       | Iassign (pl, RVmake (str, ll), _) ->
           let typl, typ = fields_types_fresh str in
           let pl' = List.map (fun l -> PlLocal l) ll in
