@@ -66,7 +66,11 @@ let go mir : analysis_results =
     (* To complete this module, one can read file active_borrows.ml, which contains a
       similar data flow analysis. *)
 
-    let foreach_root go = go mir.mentry all_places
+    let foreach_root go =
+      go mir.mentry
+        (Hashtbl.fold
+           (fun loc _ uset -> initialize (PlLocal loc) uset)
+           mir.mlocals all_places)
 
     let foreach_successor lbl state go =
       match fst mir.minstrs.(lbl) with
