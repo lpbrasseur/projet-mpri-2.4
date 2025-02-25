@@ -208,14 +208,18 @@ let borrowck mir =
     enough to ensure safety. I.e., if [lft_sets lft] contains program point [PpInCaller lft'], this
     means that we need that [lft] be alive when [lft'] dies, i.e., [lft] outlives [lft']. This relation
     has to be declared in [mir.outlives_graph]. *)
-  let add_all_outlives_edges lft =
-    PpSet.fold
-      (fun pp ->
-        match pp with PpInCaller lft' -> add_outlives_edge lft' lft | _ -> fun og -> og)
-      (lft_sets lft) mir.moutlives_graph
+  let check_outlives lft lft' =
+    if LSet.mem lft' (LMap.find lft mir.moutlives_graph) then ()
+    else Error.error mir.mloc ""
   in
 
-  ();
+  let check_outlives_set lft =
+    PpSet.iter
+      (fun pp -> match pp with PpInCaller lft' -> check_outlives lft lft' | _ -> ())
+      (lft_sets lft)
+  in
+
+  List.iter check_outlives_set mir.mgeneric_lfts;
 
   (* We check that we never perform any operation which would conflict with an existing
     borrows. *)
