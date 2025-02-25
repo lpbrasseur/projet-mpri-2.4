@@ -76,14 +76,15 @@ let go mir : analysis_results =
       match fst mir.minstrs.(lbl) with
       | Iassign (pl, RVplace pl', next) ->
           go next (initialize pl (move_or_copy pl' state))
-      | Iassign (pl, RVmake (_, ll), next) ->
-          let state = List.fold_left (fun s l -> move_or_copy (PlLocal l) s) state ll in
-          go next (initialize pl state)
+      | Iassign (_, RVunit, next) -> go next state
       | Iassign (pl, RVbinop (_, l1, l2), next) ->
           let state = move_or_copy (PlLocal l1) (move_or_copy (PlLocal l2) state) in
           go next (initialize pl state)
       | Iassign (pl, RVunop (_, l), next) ->
           let state = move_or_copy (PlLocal l) state in
+          go next (initialize pl state)
+      | Iassign (pl, RVmake (_, ll), next) ->
+          let state = List.fold_left (fun s l -> move_or_copy (PlLocal l) s) state ll in
           go next (initialize pl state)
       | Iassign (pl, _, next) -> go next (initialize pl state)
       | Ideinit (l, next) -> go next (deinitialize (PlLocal l) state)
