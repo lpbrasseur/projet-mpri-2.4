@@ -50,11 +50,11 @@ let compute_lft_sets mir : lifetime -> PpSet.t =
   let unify_from_typ = constraint_from_typ unify_lft in
   let add_outlives_from_typ = constraint_from_typ (fun x y -> add_outlives (x, y)) in
 
-  let rec add_outlives_borrow_from_deref typ pl =
-    add_outlives_from_typ typ (typ_of_place mir pl);
+  let rec add_outlives_borrow_from_deref pl typ =
+    add_outlives_from_typ (typ_of_place mir pl) typ;
     match pl with
     | PlLocal l -> ()
-    | PlDeref pl' | PlField (pl', _) -> add_outlives_borrow_from_deref typ pl'
+    | PlDeref pl' | PlField (pl', _) -> add_outlives_borrow_from_deref pl' typ
   in
 
   Array.iteri
@@ -63,8 +63,10 @@ let compute_lft_sets mir : lifetime -> PpSet.t =
       | Iassign (pl, RVplace pl', _) ->
           unify_from_typ (typ_of_place mir pl) (typ_of_place mir pl')
       | Iassign (pl, RVborrow (_, pl'), _) ->
-          (* todo : unifier ?? *)
-          add_outlives_borrow_from_deref (typ_of_place mir pl) pl'
+          (match typ_of_place mir pl with
+          | Tborrow (_, _, typ) -> unify_from_typ typ (typ_of_place mir pl')
+          | _ -> assert false);
+          add_outlives_borrow_from_deref pl' (typ_of_place mir pl)
       | Iassign (pl, RVmake (str, ll), _) ->
           let typl, typ = fields_types_fresh str in
           let pl' = List.map (fun l -> PlLocal l) ll in
@@ -210,7 +212,8 @@ let borrowck mir =
     has to be declared in [mir.outlives_graph]. *)
   let check_outlives lft lft' =
     if LSet.mem lft' (LMap.find lft mir.moutlives_graph) then ()
-    else Error.error mir.mloc ""
+    else
+      Error.error mir.mloc "Outlives constraints are not enough to ensure function safety"
   in
 
   let check_outlives_set lft =
