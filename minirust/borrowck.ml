@@ -206,8 +206,16 @@ let borrowck mir =
 
   (* TODO: check that outlives constraints declared in the prototype of the function are
     enough to ensure safety. I.e., if [lft_sets lft] contains program point [PpInCaller lft'], this
-    means that we need that [lft] be alive when [lft'] dies, i.e., [lft'] outlives [lft]. This relation
+    means that we need that [lft] be alive when [lft'] dies, i.e., [lft] outlives [lft']. This relation
     has to be declared in [mir.outlives_graph]. *)
+  let add_all_outlives_edges lft =
+    PpSet.fold
+      (fun pp ->
+        match pp with PpInCaller lft' -> add_outlives_edge lft' lft | _ -> fun og -> og)
+      (lft_sets lft) mir.moutlives_graph
+  in
+
+  ();
 
   (* We check that we never perform any operation which would conflict with an existing
     borrows. *)
