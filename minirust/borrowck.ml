@@ -58,11 +58,12 @@ let compute_lft_sets mir : lifetime -> PpSet.t =
   in
 
   Array.iteri
-    (fun lbl (instr, loc) ->
+    (fun lbl (instr, _) ->
       match instr with
       | Iassign (pl, RVplace pl', _) ->
           unify_from_typ (typ_of_place mir pl) (typ_of_place mir pl')
       | Iassign (pl, RVborrow (_, pl'), _) ->
+          (* todo : unifier ?? *)
           add_outlives_borrow_from_deref (typ_of_place mir pl) pl'
       | Iassign (pl, RVmake (str, ll), _) ->
           let typl, typ = fields_types_fresh str in
@@ -103,6 +104,20 @@ let compute_lft_sets mir : lifetime -> PpSet.t =
        (those in [mir.mgeneric_lfts]) should be alive during the whole execution of the
        function.
   *)
+  Array.iteri
+    (fun lbl _ ->
+      (* lifetimes appear free in the type of live locals should be alive *)
+      LocSet.iter (* iterating on live locals *)
+        (fun l ->
+          LSet.iter (* iterating on free lifetimes *)
+            (fun lft -> add_living lft (PpLocal lbl))
+            (free_lfts (typ_of_place mir (PlLocal l)))
+          (* the set of free lifetimes *))
+        (live_locals lbl)
+      (* the set of live locals *);
+      (* generic lifetimes are alive at every point *)
+      List.iter (fun lft -> add_living lft (PpLocal lbl)) mir.mgeneric_lfts)
+    mir.minstrs;
 
   (* If [lft] is a generic lifetime, [lft] is always alive at [PpInCaller lft]. *)
   List.iter (fun lft -> add_living lft (PpInCaller lft)) mir.mgeneric_lfts;
