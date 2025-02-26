@@ -69,14 +69,12 @@ let compute_lft_sets mir : lifetime -> PpSet.t =
           add_outlives_borrow_from_deref pl' (typ_of_place mir pl)
       | Iassign (pl, RVmake (str, ll), _) ->
           let typl, typ = fields_types_fresh str in
-          let pl' = List.map (fun l -> PlLocal l) ll in
-          let typlloc = List.map (typ_of_place mir) pl' in
+          let typlloc = List.map (fun l -> typ_of_place mir (PlLocal l)) ll in
           List.iter2 unify_from_typ typl typlloc;
           unify_from_typ (typ_of_place mir pl) typ
       | Icall (str, ll, pl, _) ->
           let typl, typ, lftconstr = fn_prototype_fresh str in
-          let pl' = List.map (fun l -> PlLocal l) ll in
-          let typlloc = List.map (typ_of_place mir) pl' in
+          let typlloc = List.map (fun l -> typ_of_place mir (PlLocal l)) ll in
           List.iter2 unify_from_typ typl typlloc;
           unify_from_typ (typ_of_place mir pl) typ;
           List.iter add_outlives lftconstr
