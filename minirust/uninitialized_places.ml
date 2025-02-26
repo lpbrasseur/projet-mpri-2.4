@@ -69,14 +69,14 @@ let go mir : analysis_results =
     let foreach_root go =
       go mir.mentry
         (Hashtbl.fold
-           (fun loc _ uset -> initialize (PlLocal loc) uset)
+           (fun loc _ uset ->
+             match loc with Lparam _ -> initialize (PlLocal loc) uset | _ -> uset)
            mir.mlocals all_places)
 
     let foreach_successor lbl state go =
       match fst mir.minstrs.(lbl) with
       | Iassign (pl, RVplace pl', next) ->
           go next (initialize pl (move_or_copy pl' state))
-      | Iassign (_, RVunit, next) -> go next state
       | Iassign (pl, RVbinop (_, l1, l2), next) ->
           let state = move_or_copy (PlLocal l1) (move_or_copy (PlLocal l2) state) in
           go next (initialize pl state)
