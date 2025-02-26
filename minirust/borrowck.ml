@@ -178,21 +178,13 @@ let borrowck mir =
       let uninit = uninitialized_places lbl in
 
       let check_write_shared pl =
-        if
-          PlaceSet.exists
-            (fun plnotmut -> is_subplace pl plnotmut && place_mut mir plnotmut = NotMut)
-            uninit
-          || place_mut mir pl = NotMut
-        then Error.error loc "Writing at or below a shared borrow"
+        if place_mut mir pl = NotMut then
+          Error.error loc "Writing at or below a shared borrow"
       in
 
       let check_create_below_shared rvpl =
-        if
-          PlaceSet.exists
-            (fun plnotmut -> is_subplace rvpl plnotmut && place_mut mir plnotmut = NotMut)
-            uninit
-          || place_mut mir rvpl = NotMut
-        then Error.error loc "Creating a mutable borrow from or below a shared borrow"
+        if place_mut mir rvpl = NotMut then
+          Error.error loc "Creating a mutable borrow from or below a shared borrow"
       in
 
       match instr with
