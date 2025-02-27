@@ -63,9 +63,9 @@ let go mir : analysis_results =
     type variable = int
     type property = PlaceSet.t
 
-    (* To complete this module, one can read file active_borrows.ml, which contains a
-      similar data flow analysis. *)
+    (* Data flow analysis functions for uninitialized places *)
 
+    (* Entry. We have to initialize only parameters of the function *)
     let foreach_root go =
       go mir.mentry
         (Hashtbl.fold
@@ -73,21 +73,21 @@ let go mir : analysis_results =
              match loc with Lparam _ -> initialize (PlLocal loc) uset | _ -> uset)
            mir.mlocals all_places)
 
+    (* Then we have to init/deinit the correct places for each instruction. Special care should be used for right values *)
     let foreach_successor lbl state go =
       match fst mir.minstrs.(lbl) with
       | Iassign (pl, RVplace pl', next) ->
-          go next (initialize pl (move_or_copy pl' state))
+          state |> move_or_copy pl' |> initialize pl |> go next
       | Iassign (pl, RVbinop (_, l1, l2), next) ->
-          let state = move_or_copy (PlLocal l1) (move_or_copy (PlLocal l2) state) in
-          go next (initialize pl state)
+          state |> move_or_copy (PlLocal l2) |> move_or_copy (PlLocal l1) |> initialize pl
+          |> go next
       | Iassign (pl, RVunop (_, l), next) ->
-          let state = move_or_copy (PlLocal l) state in
-          go next (initialize pl state)
+          state |> move_or_copy (PlLocal l) |> initialize pl |> go next
       | Iassign (pl, RVmake (_, ll), next) ->
           let state = List.fold_left (fun s l -> move_or_copy (PlLocal l) s) state ll in
-          go next (initialize pl state)
-      | Iassign (pl, _, next) -> go next (initialize pl state)
-      | Ideinit (l, next) -> go next (deinitialize (PlLocal l) state)
+          state |> initialize pl |> go next
+      | Iassign (pl, _, next) -> state |> initialize pl |> go next
+      | Ideinit (l, next) -> state |> deinitialize (PlLocal l) |> go next
       | Igoto next -> go next state
       | Iif (_, lbl1, lbl2) ->
           go lbl1 state;
@@ -95,7 +95,7 @@ let go mir : analysis_results =
       | Ireturn -> ()
       | Icall (_, ll, pl, next) ->
           let state = List.fold_left (fun s l -> move_or_copy (PlLocal l) s) state ll in
-          go next (initialize pl state)
+          state |> initialize pl |> go next
   end in
   let module Fix = Fix.DataFlow.ForIntSegment (Instrs) (Prop) (Graph) in
   fun i -> Option.value (Fix.solution i) ~default:PlaceSet.empty
