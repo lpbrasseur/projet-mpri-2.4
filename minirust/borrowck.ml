@@ -293,5 +293,6 @@ let borrowck mir =
       | Iassign (_, RVborrow (mut, pl), _) ->
           if conflicting_borrow (mut = Mut) pl then
             Error.error loc "There is a borrow conflicting this borrow."
+      | Icall (_, ll, _, _) -> List.iter (fun l -> check_use (PlLocal l)) ll
       | _ -> () (* TODO: complete the other cases*))
     mir.minstrs
