@@ -39,6 +39,8 @@ let compute_lft_sets mir : lifetime -> PpSet.t =
 
     SUGGESTION: use functions [typ_of_place], [fields_types_fresh] and [fn_prototype_fresh].
   *)
+
+  (* function that recursively generates all constraints on the lifetimes. f could be outlives or unify. the two following fonctions are just a specification of f *)
   let rec constraint_from_typ f t1 t2 =
     match t1, t2 with
     | Tstruct (_, llft1), Tstruct (_, llft2) -> List.iter2 f llft1 llft2
@@ -50,6 +52,7 @@ let compute_lft_sets mir : lifetime -> PpSet.t =
   let unify_from_typ = constraint_from_typ unify_lft in
   let add_outlives_from_typ = constraint_from_typ (fun x y -> add_outlives (x, y)) in
 
+  (* helper function for the right value borrow case *)
   let rec add_outlives_borrow_from_deref pl typ =
     add_outlives_from_typ (typ_of_place mir pl) typ;
     match pl with
@@ -57,6 +60,7 @@ let compute_lft_sets mir : lifetime -> PpSet.t =
     | PlDeref pl' | PlField (pl', _) -> add_outlives_borrow_from_deref pl' typ
   in
 
+  (* the we have to add lifetime constraints for some assignations (where the r-value has some lifetimes) and for function call *)
   Array.iteri
     (fun lbl (instr, _) ->
       match instr with
@@ -177,6 +181,7 @@ let borrowck mir =
         does not dereference a shared borrow. *)
       let uninit = uninitialized_places lbl in
 
+      (* Error producing functions. One for places and the other for right values. *)
       let check_write_shared pl =
         if place_mut mir pl = NotMut then
           Error.error loc "Writing at or below a shared borrow"
@@ -187,6 +192,7 @@ let borrowck mir =
           Error.error loc "Creating a mutable borrow from or below a shared borrow"
       in
 
+      (* Checking on places we assign, and on the right value in the case of a RVborrow *)
       match instr with
       | Iassign (pl, RVborrow (Mut, rvpl), _) ->
           check_create_below_shared rvpl;
@@ -202,18 +208,22 @@ let borrowck mir =
     enough to ensure safety. I.e., if [lft_sets lft] contains program point [PpInCaller lft'], this
     means that we need that [lft] be alive when [lft'] dies, i.e., [lft] outlives [lft']. This relation
     has to be declared in [mir.outlives_graph]. *)
+
+  (* Error producing function *)
   let check_outlives lft lft' =
     if LSet.mem lft' (LMap.find lft mir.moutlives_graph) then ()
     else
       Error.error mir.mloc "Outlives constraints are not enough to ensure function safety"
   in
 
+  (* iteration on the set of lft' such that lft : lft' *)
   let check_outlives_set lft =
     PpSet.iter
       (fun pp -> match pp with PpInCaller lft' -> check_outlives lft lft' | _ -> ())
       (lft_sets lft)
   in
 
+  (* iteration on all lifetimes *)
   List.iter check_outlives_set mir.mgeneric_lfts;
 
   (* We check that we never perform any operation which would conflict with an existing
@@ -293,6 +303,8 @@ let borrowck mir =
       | Iassign (_, RVborrow (mut, pl), _) ->
           if conflicting_borrow (mut = Mut) pl then
             Error.error loc "There is a borrow conflicting this borrow."
+      (* Added the function call case *)
       | Icall (_, ll, _, _) -> List.iter (fun l -> check_use (PlLocal l)) ll
-      | _ -> () (* TODO: complete the other cases*))
+      | _ -> ()
+      (* TODO: complete the other cases | Is this even necessary ? This must be checked by the type checker *))
     mir.minstrs
