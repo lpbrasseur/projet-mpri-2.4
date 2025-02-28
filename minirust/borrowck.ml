@@ -60,7 +60,7 @@ let compute_lft_sets mir : lifetime -> PpSet.t =
     | PlDeref pl' | PlField (pl', _) -> add_outlives_borrow_from_deref pl' typ
   in
 
-  (* the we have to add lifetime constraints for some assignations (where the r-value has some lifetimes) and for function call *)
+  (* then we have to add lifetime constraints for some assignations (where the r-value has some lifetimes) and for function call *)
   Array.iteri
     (fun lbl (instr, _) ->
       match instr with
@@ -197,8 +197,8 @@ let borrowck mir =
       | Iassign (pl, RVborrow (Mut, rvpl), _) ->
           check_create_below_shared rvpl;
           check_write_shared pl
-      | Icall (_, _, pl, _) -> check_write_shared pl
       | Iassign (pl, _, _) -> check_write_shared pl
+      | Icall (_, _, pl, _) -> check_write_shared pl
       | _ -> ())
     mir.minstrs;
 
